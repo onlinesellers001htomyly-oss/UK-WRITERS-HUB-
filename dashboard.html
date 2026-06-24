@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | UK WRITERS HUB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">🇬🇧 UK WRITERS HUB</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="mobileMenu" class="nav">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="withdraw.html">Withdraw</a>
+      <a href="referrals.html">Referrals</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- DASHBOARD -->
+  <section class="section dashboard-section">
+    <div class="dashboard-top">
+      <div class="dashboard-card wide">
+        <h2>Welcome Back</h2>
+        <p id="welcomeName">Loading user...</p>
+        <p class="small-note">Manage your earnings, tasks, referrals and withdrawals from here.</p>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="dashboard-stats">
+      <div class="dashboard-card">
+        <h3>Account Balance</h3>
+        <p class="stat-value" id="userBalance">$0.00</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Referral Earnings</h3>
+        <p class="stat-value" id="referralEarnings">$0.00</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Account Status</h3>
+        <p class="stat-value" id="accountStatus">Inactive</p>
+      </div>
+    </div>
+
+    <!-- REFERRAL BOX -->
+    <div class="dashboard-card referral-box">
+      <h2>Your Referral Link</h2>
+      <p>Invite other users and earn rewards when they join through your link.</p>
+      <div class="ref-link-box" id="userReferralLink">Loading referral link...</div>
+      <button class="btn primary copy-btn" onclick="copyReferralLink()">Copy Referral Link</button>
+    </div>
+
+    <!-- TASKS -->
+    <div class="dashboard-card">
+      <h2>Available Tasks</h2>
+      <div class="task-grid">
+        <div class="task-btn">Surveys</div>
+        <div class="task-btn">Affiliate</div>
+        <div class="task-btn">Academic</div>
+        <div class="task-btn">Blog</div>
+        <div class="task-btn">Article</div>
+        <div class="task-btn">E-commerce</div>
+        <div class="task-btn">Binary</div>
+        <div class="task-btn">AI Bot</div>
+        <div class="task-btn">Chat with Foreigners</div>
+        <div class="task-btn">Training</div>
+      </div>
+    </div>
+
+    <!-- WITHDRAWAL HISTORY -->
+    <div class="dashboard-card">
+      <h2>Withdrawal History</h2>
+      <div id="withdrawalHistory" class="withdrawal-list">
+        <p>No withdrawals yet.</p>
+      </div>
+      <div class="dashboard-actions">
+        <a href="withdraw.html" class="btn primary">Withdraw Funds</a>
+      </div>
+    </div>
+
+    <!-- ACCOUNT DETAILS -->
+    <div class="dashboard-card">
+      <h2>Account Information</h2>
+      <div class="account-info">
+        <p><strong>Full Name:</strong> <span id="infoName">-</span></p>
+        <p><strong>Email:</strong> <span id="infoEmail">-</span></p>
+        <p><strong>Phone:</strong> <span id="infoPhone">-</span></p>
+        <p><strong>Referral Code:</strong> <span id="infoReferralCode">-</span></p>
+        <p><strong>Referred By:</strong> <span id="infoReferredBy">None</span></p>
+      </div>
+    </div>
+
+    <!-- LOGOUT -->
+    <div class="dashboard-actions logout-wrap">
+      <button class="btn secondary" onclick="logoutUser()">Logout</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>✅ Trusted Platform for Online Earnings & Digital Opportunities</p>
+    <p>🔒 Secure Transactions | 📈 Real-Time Earnings | 🌍 Global Access</p>
+    <p>© 2026 UK WRITERS HUB. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+  </html>
