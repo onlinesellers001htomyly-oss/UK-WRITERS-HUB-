@@ -6,7 +6,7 @@ function toggleMenu() {
 }
 
 /* -------------------------
-   REGISTER USER (LOCAL DEMO)
+   REGISTER USER
 -------------------------- */
 const registerForm = document.getElementById("registerForm");
 
@@ -62,8 +62,37 @@ if (registerForm) {
     users.push(newUser);
     localStorage.setItem("ukwh_users", JSON.stringify(users));
 
-    alert("Registration successful! You can now proceed to login after activation setup.");
-
+    alert("Registration successful! You can now login.");
     window.location.href = "login.html";
   });
 }
+
+/* -------------------------
+   LOGIN USER
+-------------------------- */
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("ukwh_users")) || [];
+
+    const user = users.find(
+      u => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+    );
+
+    if (!user) {
+      alert("Invalid email or password.");
+      return;
+    }
+
+    localStorage.setItem("ukwh_logged_in_user", JSON.stringify(user));
+
+    alert("Login successful!");
+    window.location.href = "dashboard.html";
+  });
+      }
