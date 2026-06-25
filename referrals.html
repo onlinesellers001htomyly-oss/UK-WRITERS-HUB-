@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referrals | UK WRITERS HUB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">🇬🇧 UK WRITERS HUB</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="mobileMenu" class="nav">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="withdraw.html">Withdraw</a>
+      <a href="referrals.html">Referrals</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- REFERRALS SECTION -->
+  <section class="section dashboard-section">
+    <div class="dashboard-card wide">
+      <h1>Referral Center</h1>
+      <p class="small-note">
+        Invite new users with your referral link and earn bonuses when they join.
+      </p>
+    </div>
+
+    <!-- REFERRAL STATS -->
+    <div class="dashboard-stats">
+      <div class="dashboard-card">
+        <h3>Referral Code</h3>
+        <p class="stat-value" id="refPageCode">-</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Total Referrals</h3>
+        <p class="stat-value" id="refPageCount">0</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Referral Earnings</h3>
+        <p class="stat-value" id="refPageEarnings">$0.00</p>
+      </div>
+    </div>
+
+    <!-- REFERRAL LINK -->
+    <div class="dashboard-card referral-box">
+      <h2>Your Referral Link</h2>
+      <p>Share this link with others. When they register using your code, they will appear under your referrals.</p>
+      <div class="ref-link-box" id="refPageLink">Loading referral link...</div>
+      <button class="btn primary copy-btn" onclick="copyReferralLinkFromPage()">Copy Referral Link</button>
+    </div>
+
+    <!-- REFERRED USERS -->
+    <div class="dashboard-card">
+      <h2>Referred Users</h2>
+      <div id="referredUsersList" class="withdrawal-list">
+        <p>No referrals yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>✅ Trusted Platform for Online Earnings & Digital Opportunities</p>
+    <p>🔒 Secure Transactions | 📈 Real-Time Earnings | 🌍 Global Access</p>
+    <p>© 2026 UK WRITERS HUB. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+                                 </html>
