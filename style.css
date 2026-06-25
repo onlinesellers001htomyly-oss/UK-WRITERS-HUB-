@@ -461,3 +461,15 @@ body {
   font-size: 1rem;
   color: black;
   }
+/* REFERRAL PAGE */
+.referred-user-item {
+  background: rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.referred-user-item p {
+  margin: 6px 0;
+  line-height: 1.6;
+  }
