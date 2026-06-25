@@ -6,11 +6,33 @@ function toggleMenu() {
 }
 
 /* -------------------------
+   GET BASE URL
+-------------------------- */
+function getBaseUrl() {
+  const isLocalFile = window.location.protocol === "file:";
+  if (isLocalFile) {
+    return "register.html";
+  }
+
+  const path = window.location.pathname;
+  const basePath = path.substring(0, path.lastIndexOf("/") + 1);
+  return window.location.origin + basePath + "register.html";
+}
+
+/* -------------------------
    REGISTER USER
 -------------------------- */
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {
+  // Auto-fill referral code from URL if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const refFromUrl = urlParams.get("ref");
+  const referralInput = document.getElementById("referralCode");
+  if (referralInput && refFromUrl) {
+    referralInput.value = refFromUrl;
+  }
+
   registerForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -56,10 +78,22 @@ if (registerForm) {
       referralEarnings: 0,
       active: false,
       joinFeePaid: false,
-      withdrawals: []
+      withdrawals: [],
+      createdAt: new Date().toLocaleString()
     };
 
     users.push(newUser);
+
+    // OPTIONAL TEST REFERRAL BONUS LOGIC
+    // If someone registered using a valid referral code,
+    // credit the owner of that code.
+    if (referralCode) {
+      const refOwnerIndex = users.findIndex(u => u.referralCode === referralCode);
+      if (refOwnerIndex !== -1) {
+        users[refOwnerIndex].referralEarnings = Number(users[refOwnerIndex].referralEarnings || 0) + 1;
+      }
+    }
+
     localStorage.setItem("ukwh_users", JSON.stringify(users));
 
     alert("Registration successful! You can now login.");
@@ -98,26 +132,38 @@ if (loginForm) {
 }
 
 /* -------------------------
+   GET LOGGED IN USER
+-------------------------- */
+function getLoggedInUser() {
+  return JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
+}
+
+function requireLogin() {
+  const user = getLoggedInUser();
+  if (!user) {
+    alert("You must login first.");
+    window.location.href = "login.html";
+    return null;
+  }
+  return user;
+}
+
+/* -------------------------
    DASHBOARD LOADER
 -------------------------- */
 function loadDashboard() {
   const welcomeName = document.getElementById("welcomeName");
   if (!welcomeName) return;
 
-  const loggedInUser = JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
-
-  if (!loggedInUser) {
-    alert("You must login first.");
-    window.location.href = "login.html";
-    return;
-  }
+  const loggedInUser = requireLogin();
+  if (!loggedInUser) return;
 
   document.getElementById("welcomeName").textContent = loggedInUser.fullName || "User";
   document.getElementById("userBalance").textContent = "$" + Number(loggedInUser.balance || 0).toFixed(2);
   document.getElementById("referralEarnings").textContent = "$" + Number(loggedInUser.referralEarnings || 0).toFixed(2);
   document.getElementById("accountStatus").textContent = loggedInUser.active ? "Active" : "Inactive";
 
-  const referralLink = `https://ukwritershub.com/register.html?ref=${loggedInUser.referralCode}`;
+  const referralLink = `${getBaseUrl()}?ref=${loggedInUser.referralCode}`;
   document.getElementById("userReferralLink").textContent = referralLink;
 
   document.getElementById("infoName").textContent = loggedInUser.fullName || "-";
@@ -163,14 +209,10 @@ if (withdrawForm) {
     const method = document.getElementById("withdrawMethod").value;
     const details = document.getElementById("withdrawDetails").value.trim();
 
-    let loggedInUser = JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
-    let users = JSON.parse(localStorage.getItem("ukwh_users")) || [];
+    let loggedInUser = requireLogin();
+    if (!loggedInUser) return;
 
-    if (!loggedInUser) {
-      alert("You must login first.");
-      window.location.href = "login.html";
-      return;
-    }
+    let users = JSON.parse(localStorage.getItem("ukwh_users")) || [];
 
     if (!amount || amount <= 0) {
       alert("Enter a valid withdrawal amount.");
@@ -195,19 +237,15 @@ if (withdrawForm) {
       date: new Date().toLocaleString()
     };
 
-    // Deduct balance
     loggedInUser.balance = Number(loggedInUser.balance || 0) - amount;
 
-    // Save withdrawal
     if (!loggedInUser.withdrawals) {
       loggedInUser.withdrawals = [];
     }
     loggedInUser.withdrawals.unshift(withdrawalRequest);
 
-    // Update logged in user
     localStorage.setItem("ukwh_logged_in_user", JSON.stringify(loggedInUser));
 
-    // Update users array
     const updatedUsers = users.map(user => {
       if (user.email === loggedInUser.email) {
         return loggedInUser;
@@ -223,10 +261,60 @@ if (withdrawForm) {
 }
 
 /* -------------------------
-   COPY REFERRAL LINK
+   REFERRALS PAGE LOADER
+-------------------------- */
+function loadReferralsPage() {
+  const refPageCode = document.getElementById("refPageCode");
+  if (!refPageCode) return;
+
+  const loggedInUser = requireLogin();
+  if (!loggedInUser) return;
+
+  const users = JSON.parse(localStorage.getItem("ukwh_users")) || [];
+
+  const referredUsers = users.filter(
+    user => user.referredBy && user.referredBy === loggedInUser.referralCode
+  );
+
+  const referralLink = `${getBaseUrl()}?ref=${loggedInUser.referralCode}`;
+
+  document.getElementById("refPageCode").textContent = loggedInUser.referralCode || "-";
+  document.getElementById("refPageCount").textContent = referredUsers.length;
+  document.getElementById("refPageEarnings").textContent =
+    "$" + Number(loggedInUser.referralEarnings || 0).toFixed(2);
+  document.getElementById("refPageLink").textContent = referralLink;
+
+  const referredUsersList = document.getElementById("referredUsersList");
+
+  if (!referredUsers.length) {
+    referredUsersList.innerHTML = "<p>No referrals yet.</p>";
+  } else {
+    referredUsersList.innerHTML = referredUsers.map(user => `
+      <div class="referred-user-item">
+        <p><strong>Name:</strong> ${user.fullName}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>Phone:</strong> ${user.phone}</p>
+        <p><strong>Joined:</strong> ${user.createdAt || "N/A"}</p>
+      </div>
+    `).join("");
+  }
+}
+
+/* -------------------------
+   COPY REFERRAL LINKS
 -------------------------- */
 function copyReferralLink() {
   const linkBox = document.getElementById("userReferralLink");
+  if (!linkBox) return;
+
+  const link = linkBox.textContent;
+  navigator.clipboard.writeText(link)
+    .then(() => alert("Referral link copied!"))
+    .catch(() => alert("Unable to copy referral link."));
+}
+
+function copyReferralLinkFromPage() {
+  const linkBox = document.getElementById("refPageLink");
   if (!linkBox) return;
 
   const link = linkBox.textContent;
@@ -247,4 +335,7 @@ function logoutUser() {
 /* -------------------------
    RUN PAGE LOGIC
 -------------------------- */
-window.addEventListener("DOMContentLoaded", loadDashboard);
+window.addEventListener("DOMContentLoaded", function () {
+  loadDashboard();
+  loadReferralsPage();
+});
