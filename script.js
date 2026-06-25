@@ -102,7 +102,7 @@ if (loginForm) {
 -------------------------- */
 function loadDashboard() {
   const welcomeName = document.getElementById("welcomeName");
-  if (!welcomeName) return; // not on dashboard
+  if (!welcomeName) return;
 
   const loggedInUser = JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
 
@@ -112,26 +112,20 @@ function loadDashboard() {
     return;
   }
 
-  // Welcome
   document.getElementById("welcomeName").textContent = loggedInUser.fullName || "User";
-
-  // Stats
   document.getElementById("userBalance").textContent = "$" + Number(loggedInUser.balance || 0).toFixed(2);
   document.getElementById("referralEarnings").textContent = "$" + Number(loggedInUser.referralEarnings || 0).toFixed(2);
   document.getElementById("accountStatus").textContent = loggedInUser.active ? "Active" : "Inactive";
 
-  // Referral Link
   const referralLink = `https://ukwritershub.com/register.html?ref=${loggedInUser.referralCode}`;
   document.getElementById("userReferralLink").textContent = referralLink;
 
-  // Account info
   document.getElementById("infoName").textContent = loggedInUser.fullName || "-";
   document.getElementById("infoEmail").textContent = loggedInUser.email || "-";
   document.getElementById("infoPhone").textContent = loggedInUser.phone || "-";
   document.getElementById("infoReferralCode").textContent = loggedInUser.referralCode || "-";
   document.getElementById("infoReferredBy").textContent = loggedInUser.referredBy || "None";
 
-  // Withdrawal history
   const withdrawalBox = document.getElementById("withdrawalHistory");
   if (withdrawalBox) {
     const withdrawals = loggedInUser.withdrawals || [];
@@ -145,6 +139,7 @@ function loadDashboard() {
             <div class="withdraw-item">
               <p><strong>Amount:</strong> $${Number(w.amount).toFixed(2)}</p>
               <p><strong>Method:</strong> ${w.method}</p>
+              <p><strong>Details:</strong> ${w.details}</p>
               <p><strong>Status:</strong> ${w.status}</p>
               <p><strong>Date:</strong> ${w.date}</p>
             </div>
@@ -153,6 +148,78 @@ function loadDashboard() {
         .join("");
     }
   }
+}
+
+/* -------------------------
+   WITHDRAWAL REQUEST
+-------------------------- */
+const withdrawForm = document.getElementById("withdrawForm");
+
+if (withdrawForm) {
+  withdrawForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const amount = parseFloat(document.getElementById("withdrawAmount").value);
+    const method = document.getElementById("withdrawMethod").value;
+    const details = document.getElementById("withdrawDetails").value.trim();
+
+    let loggedInUser = JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
+    let users = JSON.parse(localStorage.getItem("ukwh_users")) || [];
+
+    if (!loggedInUser) {
+      alert("You must login first.");
+      window.location.href = "login.html";
+      return;
+    }
+
+    if (!amount || amount <= 0) {
+      alert("Enter a valid withdrawal amount.");
+      return;
+    }
+
+    if (!method || !details) {
+      alert("Please complete all withdrawal details.");
+      return;
+    }
+
+    if ((loggedInUser.balance || 0) < amount) {
+      alert("Insufficient balance for this withdrawal.");
+      return;
+    }
+
+    const withdrawalRequest = {
+      amount: amount,
+      method: method,
+      details: details,
+      status: "Pending",
+      date: new Date().toLocaleString()
+    };
+
+    // Deduct balance
+    loggedInUser.balance = Number(loggedInUser.balance || 0) - amount;
+
+    // Save withdrawal
+    if (!loggedInUser.withdrawals) {
+      loggedInUser.withdrawals = [];
+    }
+    loggedInUser.withdrawals.unshift(withdrawalRequest);
+
+    // Update logged in user
+    localStorage.setItem("ukwh_logged_in_user", JSON.stringify(loggedInUser));
+
+    // Update users array
+    const updatedUsers = users.map(user => {
+      if (user.email === loggedInUser.email) {
+        return loggedInUser;
+      }
+      return user;
+    });
+
+    localStorage.setItem("ukwh_users", JSON.stringify(updatedUsers));
+
+    alert("Withdrawal request submitted successfully!");
+    window.location.href = "dashboard.html";
+  });
 }
 
 /* -------------------------
