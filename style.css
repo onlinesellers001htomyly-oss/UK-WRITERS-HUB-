@@ -451,3 +451,13 @@ body {
     grid-template-columns: 1fr;
   }
   }
+/* SELECT FIELD FOR WITHDRAW FORM */
+.auth-form select {
+  width: 100%;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: black;
+  }
