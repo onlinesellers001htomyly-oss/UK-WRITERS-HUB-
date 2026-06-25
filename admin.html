@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | UK WRITERS HUB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">🇬🇧 UK WRITERS HUB ADMIN</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="mobileMenu" class="nav">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="admin.html">Admin</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </header>
+
+  <section class="section dashboard-section">
+    <!-- ADMIN SUMMARY -->
+    <div class="dashboard-card wide">
+      <h1>Admin Control Panel</h1>
+      <p class="small-note">
+        Manage users, balances, referrals, activations and withdrawal requests from here.
+      </p>
+    </div>
+
+    <div class="dashboard-stats">
+      <div class="dashboard-card">
+        <h3>Total Users</h3>
+        <p class="stat-value" id="adminTotalUsers">0</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Total Active Users</h3>
+        <p class="stat-value" id="adminActiveUsers">0</p>
+      </div>
+
+      <div class="dashboard-card">
+        <h3>Total Pending Withdrawals</h3>
+        <p class="stat-value" id="adminPendingWithdrawals">0</p>
+      </div>
+    </div>
+
+    <!-- USERS TABLE -->
+    <div class="dashboard-card">
+      <h2>Registered Users</h2>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Referral Code</th>
+              <th>Referred By</th>
+              <th>Balance</th>
+              <th>Referral Earnings</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminUsersTable">
+            <tr>
+              <td colspan="9">No users found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- WITHDRAWALS TABLE -->
+    <div class="dashboard-card">
+      <h2>Withdrawal Requests</h2>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Details</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="adminWithdrawalsTable">
+            <tr>
+              <td colspan="8">No withdrawal requests found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>UK WRITERS HUB Admin Panel</p>
+    <p>© 2026 UK WRITERS HUB. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
