@@ -10,6 +10,7 @@ const usersRouter = require("./users");
 const adminRouter = require("./admin");
 const notificationsRouter = require("./notifications");
 const bidsRouter=require("./bids");
+const tasksRouter=require("./tasks");
 
 app.use(cors());
 app.use(express.json());
