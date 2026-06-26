@@ -6,6 +6,7 @@ const app = express();
 const usersRouter = require("./users");
 app.use(cors());
 app.use(express.json());
+app.use("/deposits", depositsRouter);
 
 db.users = db.users || [];
 
