@@ -14,6 +14,7 @@ app.use(express.json());
 app.use("/deposits", depositsRouter);
 app.use("/users", usersRouter);
 app.use("/withdrawals", withdrawalsRouter);
+app.use("/admin", adminRouter);
 
 db.users = db.users || [];
 
