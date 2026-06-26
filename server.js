@@ -23,7 +23,6 @@ app.get("/", (req, res) => {
 app.post("/register", (req, res) => {
 
     const {fullname,email,password,referral} = req.body;
-const { generateReferralCode } = require("./referral");
     const user = {
 
         id: users.length + 1,
