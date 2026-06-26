@@ -3,6 +3,7 @@ const db = require("./database");
 const express = require("express");
 const cors = require("cors");
 
+app.use("/withdrawals", withdrawalsRouter);
 const app = express();
 const usersRouter = require("./users");
 app.use(cors());
