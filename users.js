@@ -8,6 +8,12 @@ router.get("/", (req, res) => {
     res.json(db.users);
 });
 
+router.get("/", authenticate, (req, res) => {
+
+    res.json(db.users);
+
+});
+
 // Get one user by ID
 router.get("/:id", (req, res) => {
 
