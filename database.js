@@ -1,15 +1,19 @@
-const db = {
+const db={
 
-    users: [],
+users:[],
 
-    deposits: [],
+tasks:[],
 
-    withdrawals: [],
+bids:[],
 
-    referrals: [],
+deposits:[],
 
-    notifications: []
+withdrawals:[],
+
+notifications:[],
+
+referrals:[]
 
 };
 
-module.exports = db;
+module.exports=db;
