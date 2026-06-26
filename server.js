@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const users = [];
+db.users = db.users || [];
 
 app.get("/", (req, res) => {
     res.send("UK WRITERS HUB Backend is Running...");
