@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/deposits", depositsRouter);
 app.use("/users", usersRouter);
+app.use("/withdrawals", withdrawalsRouter);
 
 db.users = db.users || [];
 
