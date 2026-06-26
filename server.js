@@ -18,6 +18,7 @@ app.use("/users", usersRouter);
 app.use("/withdrawals", withdrawalsRouter);
 app.use("/admin", adminRouter);
 app.use("/notifications", notificationsRouter);
+app.use("/bids",bidsRouter);
 
 db.users = db.users || [];
 
