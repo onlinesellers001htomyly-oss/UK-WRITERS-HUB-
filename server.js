@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const depositsRouter = require("./deposits");
 const usersRouter = require("./users");
-
+const { generateReferralCode } = require("./referral");
 const app = express();
 const usersRouter = require("./users");
 
