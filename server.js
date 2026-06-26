@@ -2,6 +2,7 @@ const withdrawalsRouter = require("./withdrawals");
 const db = require("./database");
 const express = require("express");
 const cors = require("cors");
+const depositsRouter = require("./deposits");
 
 app.use("/withdrawals", withdrawalsRouter);
 const app = express();
