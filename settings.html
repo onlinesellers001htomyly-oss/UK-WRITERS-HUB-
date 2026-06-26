@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | UK WRITERS HUB</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f6fb;
+}
+
+header{
+background:#455A64;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+nav{
+background:#37474F;
+padding:12px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:bold;
+}
+
+.container{
+width:95%;
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.card h2{
+color:#37474F;
+margin-top:0;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-top:6px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:16px;
+}
+
+button{
+margin-top:20px;
+padding:14px;
+width:100%;
+background:#37474F;
+color:white;
+border:none;
+border-radius:6px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#263238;
+}
+
+.logout{
+background:#D32F2F;
+}
+
+.logout:hover{
+background:#B71C1C;
+}
+
+footer{
+background:#37474F;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>UK WRITERS HUB</h1>
+
+<p>Account Settings</p>
+
+</header>
+
+<nav>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="notifications.html">Notifications</a>
+
+<a href="support.html">Support</a>
+
+</nav>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Edit Profile</h2>
+
+<label>Full Name</label>
+<input type="text" placeholder="Enter full name">
+
+<label>Email Address</label>
+<input type="email" placeholder="Enter email">
+
+<label>Phone Number</label>
+<input type="text" placeholder="Enter phone number">
+
+<button>Save Changes</button>
+
+</div>
+
+<div class="card">
+
+<h2>Change Password</h2>
+
+<label>Current Password</label>
+<input type="password">
+
+<label>New Password</label>
+<input type="password">
+
+<label>Confirm New Password</label>
+<input type="password">
+
+<button>Update Password</button>
+
+</div>
+
+<div class="card">
+
+<h2>Preferences</h2>
+
+<label>Language</label>
+
+<select>
+<option>English</option>
+<option>French</option>
+<option>Swahili</option>
+</select>
+
+<label>Email Notifications</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+<label>Theme</label>
+
+<select>
+<option>Light Mode</option>
+<option>Dark Mode</option>
+</select>
+
+<button>Save Preferences</button>
+
+</div>
+
+<div class="card">
+
+<h2>Security</h2>
+
+<p>Keep your account secure by using a strong password and never sharing your login details.</p>
+
+<button class="logout">
+
+Logout
+
+</button>
+
+</div>
+
+</div>
+
+<footer>
+
+© 2026 UK WRITERS HUB | Settings
+
+</footer>
+
+</body>
+  </html>
