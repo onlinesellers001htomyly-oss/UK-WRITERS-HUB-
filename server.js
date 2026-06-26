@@ -5,9 +5,9 @@ const cors = require("cors");
 const depositsRouter = require("./deposits");
 const usersRouter = require("./users");
 
-app.use("/withdrawals", withdrawalsRouter);
 const app = express();
 const usersRouter = require("./users");
+
 app.use(cors());
 app.use(express.json());
 app.use("/deposits", depositsRouter);
