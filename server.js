@@ -41,7 +41,7 @@ app.post("/register", (req, res) => {
 
     };
 
-    users.push(user);
+    db.users.push(user);
 
     res.json({
 
