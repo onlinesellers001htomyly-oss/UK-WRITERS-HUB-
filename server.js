@@ -59,7 +59,7 @@ app.post("/login",(req,res)=>{
 
     const {email,password}=req.body;
 
-    const user=users.find(
+    const user = db.users.find(...)
 
         u=>u.email===email && u.password===password
 
