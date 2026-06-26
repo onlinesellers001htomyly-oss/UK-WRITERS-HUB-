@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("./database");
+const authenticate = require("./auth");
 
 // Get all users
 router.get("/", (req, res) => {
