@@ -7,6 +7,7 @@ const usersRouter = require("./users");
 const { generateReferralCode } = require("./referral");
 const app = express();
 const usersRouter = require("./users");
+const adminRouter = require("./admin");
 
 app.use(cors());
 app.use(express.json());
