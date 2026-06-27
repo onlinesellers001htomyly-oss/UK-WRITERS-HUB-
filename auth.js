@@ -1,21 +1,40 @@
-function authenticate(req, res, next) {
+import { auth, db } from "./firebase.js";
 
-    const token = req.headers.authorization;
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
-    if (!token) {
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-        return res.status(401).json({
+onAuthStateChanged(auth, async(user)=>{
 
-            success: false,
+    if(!user){
 
-            message: "Access denied."
+        window.location="login.html";
 
-        });
+        return;
 
     }
 
-    next();
+    const userRef=doc(db,"users",user.uid);
 
-}
+    const userSnap=await getDoc(userRef);
 
-module.exports = authenticate;
+    if(userSnap.exists()){
+
+        const data=userSnap.data();
+
+        document.getElementById("fullname").innerHTML=data.fullname;
+
+        document.getElementById("balance").innerHTML="$"+data.balance;
+
+        document.getElementById("referrals").innerHTML=data.totalReferrals;
+
+        document.getElementById("membership").innerHTML=data.membership;
+
+    }
+
+});
