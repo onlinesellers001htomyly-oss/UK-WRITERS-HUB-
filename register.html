@@ -83,6 +83,78 @@
     <p>© 2026 UK WRITERS HUB. All Rights Reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+
+  <script type="module">
+
+import { auth, db } from "./firebase.js";
+
+import {
+  createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+import {
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    const fullname = document.getElementById("fullname").value;
+
+    const email = document.getElementById("email").value;
+
+    const password = document.getElementById("password").value;
+
+    try{
+
+        const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
+
+        const user = userCredential.user;
+
+        const referralCode = "UKH" + user.uid.substring(0,8).toUpperCase();
+
+        await setDoc(doc(db,"users",user.uid),{
+
+            fullname,
+
+            email,
+
+            referralCode,
+
+            balance:0,
+
+            referralEarnings:0,
+
+            taskEarnings:0,
+
+            totalReferrals:0,
+
+            membership:"Pending",
+
+            createdAt:new Date()
+
+        });
+
+        alert("Registration Successful!");
+
+        window.location="login.html";
+
+    }catch(error){
+
+        alert(error.message);
+
+    }
+
+});
+
+  </script>
 </body>
 </html>
