@@ -11,30 +11,41 @@ import {
 
 onAuthStateChanged(auth, async(user)=>{
 
-    if(!user){
+if(!user){
 
-        window.location="login.html";
+window.location="login.html";
+return;
 
-        return;
+}
 
-    }
+const snap=await getDoc(doc(db,"users",user.uid));
 
-    const userRef=doc(db,"users",user.uid);
+if(snap.exists()){
 
-    const userSnap=await getDoc(userRef);
+const data=snap.data();
 
-    if(userSnap.exists()){
+document.getElementById("welcomeName").textContent=data.fullname;
 
-        const data=userSnap.data();
+document.getElementById("userBalance").textContent="$"+Number(data.balance).toFixed(2);
 
-        document.getElementById("fullname").innerHTML=data.fullname;
+document.getElementById("referralEarnings").textContent="$"+Number(data.referralEarnings).toFixed(2);
 
-        document.getElementById("balance").innerHTML="$"+data.balance;
+document.getElementById("accountStatus").textContent=data.membership;
 
-        document.getElementById("referrals").innerHTML=data.totalReferrals;
+document.getElementById("infoName").textContent=data.fullname;
 
-        document.getElementById("membership").innerHTML=data.membership;
+document.getElementById("infoEmail").textContent=data.email;
 
-    }
+document.getElementById("infoPhone").textContent=data.phone || "Not Added";
+
+document.getElementById("infoReferralCode").textContent=data.referralCode;
+
+document.getElementById("infoReferredBy").textContent=data.referredBy || "None";
+
+document.getElementById("userReferralLink").textContent=
+
+window.location.origin+"/register.html?ref="+data.referralCode;
+
+}
 
 });
