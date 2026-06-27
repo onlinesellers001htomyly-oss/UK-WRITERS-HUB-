@@ -14,7 +14,7 @@ const firebaseConfig = {
 
   projectId: "uk-writers-hub-280de",
 
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
+  storageBucket: "uk-writers-hub-280de.firebasestorage.app",
 
   messagingSenderId: "YOUR_SENDER_ID",
 
