@@ -10,7 +10,7 @@ const firebaseConfig = {
 
   apiKey: "AIzaSyAdShmmM4ILX3bfV265R399i3Rvy0Qg0rU",
 
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  authDomain: "uk-writers-hub-280de.firebaseapp.com",
 
   projectId: "YOUR_PROJECT_ID",
 
