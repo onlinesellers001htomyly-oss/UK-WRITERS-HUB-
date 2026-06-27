@@ -12,7 +12,7 @@ const firebaseConfig = {
 
   authDomain: "uk-writers-hub-280de.firebaseapp.com",
 
-  projectId: "YOUR_PROJECT_ID",
+  projectId: "uk-writers-hub-280de",
 
   storageBucket: "YOUR_PROJECT.firebasestorage.app",
 
