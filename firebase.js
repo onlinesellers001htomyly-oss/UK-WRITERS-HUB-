@@ -8,7 +8,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.9.1/firebase
 // Replace with your Firebase configuration
 const firebaseConfig = {
 
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyAdShmmM4ILX3bfV265R399i3Rvy0Qg0rU",
 
   authDomain: "YOUR_PROJECT.firebaseapp.com",
 
