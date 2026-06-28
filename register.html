@@ -1,162 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register | UK WRITERS HUB</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | UK WRITERS HUB</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-const params = new URLSearchParams(window.location.search);
 
-const referredBy = params.get("ref") || "";
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">🇬🇧 UK WRITERS HUB</div>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <nav id="mobileMenu" class="nav">
-      <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
-      <a href="login.html">Login</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header class="header">
+<div class="logo">🇬🇧 UK WRITERS HUB</div>
 
-  <!-- REGISTER SECTION -->
-  <section class="section auth-section">
-    <div class="auth-card">
-      <h1>Create Your Account</h1>
-      <p class="auth-subtitle">
-        Join <strong>UK WRITERS HUB</strong> and activate your account with a
-        <strong>$10 joining fee</strong> to access tasks, referral rewards and withdrawals.
-      </p>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-      <form id="registerForm" class="auth-form">
-        <input type="text" id="fullName" placeholder="Full Name" required />
-        <input type="email" id="email" placeholder="Email Address" required />
-        <input type="tel" id="phone" placeholder="Phone Number e.g. 2547XXXXXXXX" required />
-        <input type="password" id="password" placeholder="Create Password" required />
-        <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
-        <input type="text" id="referralCode" placeholder="Referral Code (optional)" />
+<nav id="mobileMenu" class="nav">
+<a href="index.html">Home</a>
+<a href="register.html">Register</a>
+<a href="login.html">Login</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="#contact">Contact</a>
+</nav>
 
-        <button type="submit" class="btn primary auth-btn">Register Now</button>
-      </form>
+</header>
 
-      <div class="auth-links">
-        <p>Already have an account? <a href="login.html">Login here</a></p>
-      </div>
-    </div>
-  </section>
+<!-- REGISTER -->
+<section class="section auth-section">
 
-  <!-- PAYMENT INFO -->
-  <section class="section">
-    <div class="card payment-card">
-      <h2>Account Activation</h2>
-      <p>
-        After registration, your account will require the <strong>$10 joining fee</strong>
-        before activation. Once activated, you will be able to:
-      </p>
+<div class="auth-card">
 
-      <ul class="benefits-list">
-        <li>Access all task categories</li>
-        <li>Get your unique referral link</li>
-        <li>View your earnings dashboard</li>
-        <li>Request withdrawals</li>
-        <li>Track referral bonuses and task progress</li>
-      </ul>
-    </div>
-  </section>
+<h1>Create Your Account</h1>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="card contact-card">
-      <h2>Need Help?</h2>
-      <p>Email: support@ukwritershub.com</p>
-      <p>Phone: +254 781548711</p>
-      <p>Location: Nairobi, Kenya</p>
-    </div>
-  </section>
+<p class="auth-subtitle">
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>✅ Trusted Platform for Online Earnings & Digital Opportunities</p>
-    <p>🔒 Secure Transactions | 📈 Real-Time Earnings | 🌍 Global Access</p>
-    <p>© 2026 UK WRITERS HUB. All Rights Reserved.</p>
-  </footer>
+Join <strong>UK WRITERS HUB</strong> and activate your account with a
+<strong>$10 joining fee</strong> to access tasks, referral rewards and withdrawals.
 
+</p>
 
-  <script type="module">
+<form id="registerForm">
+
+<input
+type="text"
+id="fullName"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number (2547XXXXXXXX)"
+required>
+
+<input
+type="password"
+id="password"
+placeholder="Create Password"
+required>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password"
+required>
+
+<button type="submit" class="btn primary">
+
+Register Now
+
+</button>
+
+</form>
+
+<p>
+
+Already have an account?
+
+<a href="login.html">
+
+Login Here
+
+</a>
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ACTIVATION -->
+<section class="section">
+
+<div class="card">
+
+<h2>Account Activation</h2>
+
+<p>
+
+Every new account requires a
+
+<strong>$10 Membership Fee</strong>
+
+before accessing tasks.
+
+</p>
+
+<ul>
+
+<li>Access all writing jobs</li>
+
+<li>Receive your referral link</li>
+
+<li>Earn referral bonuses</li>
+
+<li>Withdraw earnings</li>
+
+<li>Bid on client projects</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="section">
+
+<div class="card">
+
+<h2>Contact Us</h2>
+
+<p>Email: support@ukwritershub.com</p>
+
+<p>Phone: +254781548711</p>
+
+<p>Nairobi, Kenya</p>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<p>© 2026 UK WRITERS HUB</p>
+
+</footer>
+
+<script type="module">
 
 import { auth, db } from "./firebase.js";
 
 import {
-  createUserWithEmailAndPassword
+
+createUserWithEmailAndPassword
+
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 import {
-  doc,
-  setDoc
+
+doc,
+
+setDoc
+
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-const form = document.querySelector("form");
+const params = new URLSearchParams(window.location.search);
 
-form.addEventListener("submit", async (e) => {
+const referredBy = params.get("ref") || "";
 
-    e.preventDefault();
+document.getElementById("registerForm").addEventListener("submit", async(e)=>{
 
-    const fullname = document.getElementById("fullname").value;
+e.preventDefault();
 
-    const email = document.getElementById("email").value;
+const fullname=document.getElementById("fullName").value.trim();
 
-    const password = document.getElementById("password").value;
+const email=document.getElementById("email").value.trim();
 
-    try{
+const phone=document.getElementById("phone").value.trim();
 
-        const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
+const password=document.getElementById("password").value;
 
-        const user = userCredential.user;
+const confirmPassword=document.getElementById("confirmPassword").value;
 
-        const referralCode = "UKH" + user.uid.substring(0,8).toUpperCase();
+if(password!==confirmPassword){
 
-        await setDoc(doc(db,"users",user.uid),{
+alert("Passwords do not match.");
 
-            fullname,
+return;
 
-            email,
+}
 
-            referralCode,
+try{
 
-            balance:0,
+const userCredential=await createUserWithEmailAndPassword(
 
-            referralEarnings:0,
+auth,
 
-            taskEarnings:0,
+email,
 
-            totalReferrals:0,
+password
 
-            membership:"Pending",
+);
 
-            createdAt:new Date()
+const user=userCredential.user;
 
-        });
+const referralCode="UKH"+user.uid.substring(0,8).toUpperCase();
 
-        alert("Registration Successful!");
+await setDoc(doc(db,"users",user.uid),{
 
-        window.location="login.html";
+fullname:fullname,
 
-    }catch(error){
+email:email,
 
-        alert(error.message);
+phone:phone,
 
-    }
+referralCode:referralCode,
+
+referredBy:referredBy,
+
+balance:0,
+
+referralEarnings:0,
+
+taskEarnings:0,
+
+totalReferrals:0,
+
+membership:"Pending",
+
+createdAt:new Date()
 
 });
 
-  </script>
+alert("Registration successful! Please login.");
+
+window.location="login.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
+</script>
+
+<script src="script.js"></script>
+
 </body>
-</html>
+  </html>
