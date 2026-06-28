@@ -7,7 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+const params = new URLSearchParams(window.location.search);
 
+const referredBy = params.get("ref") || "";
   <!-- HEADER -->
   <header class="header">
     <div class="logo">🇬🇧 UK WRITERS HUB</div>
