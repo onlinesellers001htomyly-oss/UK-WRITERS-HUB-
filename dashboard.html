@@ -146,6 +146,27 @@ return;
 }
 
 const data=snap.data();
+  // MEMBERSHIP RESTRICTION
+if (data.membership !== "Active") {
+
+    // Show warning message
+    document.getElementById("accessWarning").innerText =
+    "⚠️ Your account is pending activation. Please pay the $10 membership fee to unlock tasks, bidding and withdrawals.";
+
+    // Disable all task buttons
+    const tasks = document.querySelectorAll(".task-btn");
+
+    tasks.forEach(task => {
+
+        task.style.opacity = "0.5";
+
+        task.style.pointerEvents = "none";
+
+        task.style.cursor = "not-allowed";
+
+    });
+
+    }
 
 document.getElementById("welcomeName").innerText=data.fullname;
 
