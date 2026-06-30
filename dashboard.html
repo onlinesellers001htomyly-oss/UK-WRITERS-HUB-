@@ -113,6 +113,64 @@
   </footer>
 
   <script src="script.js"></script>
+<script type="module">
 
+import { db } from "./firebase.js";
+
+import { getAuth, onAuthStateChanged }
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+
+import { doc, getDoc }
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, async(user)=>{
+
+if(!user){
+
+window.location="login.html";
+
+return;
+
+}
+
+const snap=await getDoc(doc(db,"users",user.uid));
+
+if(!snap.exists()){
+
+alert("User not found.");
+
+return;
+
+}
+
+const data=snap.data();
+
+document.getElementById("welcomeName").innerText=data.fullname;
+
+document.getElementById("userBalance").innerText="$"+Number(data.balance).toFixed(2);
+
+document.getElementById("referralEarnings").innerText="$"+Number(data.referralEarnings).toFixed(2);
+
+document.getElementById("accountStatus").innerText=data.membership;
+
+document.getElementById("infoName").innerText=data.fullname;
+
+document.getElementById("infoEmail").innerText=data.email;
+
+document.getElementById("infoPhone").innerText=data.phone;
+
+document.getElementById("infoReferralCode").innerText=data.referralCode;
+
+document.getElementById("infoReferredBy").innerText=data.referredBy || "None";
+
+const link=window.location.origin+"/register.html?ref="+data.referralCode;
+
+document.getElementById("userReferralLink").innerText=link;
+
+});
+
+</script>
 </body>
   </html>
