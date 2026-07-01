@@ -8,7 +8,8 @@ import {
     doc,
     getDoc,
     collection,
-    getDocs
+    getDocs,
+    updateDoc
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const ADMIN_EMAIL = "muindithomas16@gmail.com";
