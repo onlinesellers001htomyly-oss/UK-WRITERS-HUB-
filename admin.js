@@ -49,3 +49,61 @@ onAuthStateChanged(auth, async (user) => {
     console.log("Admin verified successfully.");
 
 });
+async function loadUsers() {
+
+    const usersTable = document.getElementById("adminUsersTable");
+
+    usersTable.innerHTML = "";
+
+    const querySnapshot = await getDocs(collection(db, "users"));
+
+    let totalUsers = 0;
+    let activeUsers = 0;
+
+    querySnapshot.forEach((docSnap) => {
+
+        totalUsers++;
+
+        const user = docSnap.data();
+
+        if (user.membership === "Active") {
+            activeUsers++;
+        }
+
+        usersTable.innerHTML += `
+        <tr>
+
+            <td>${user.fullname}</td>
+
+            <td>${user.email}</td>
+
+            <td>${user.phone}</td>
+
+            <td>${user.referralCode}</td>
+
+            <td>${user.referredBy || "None"}</td>
+
+            <td>$${Number(user.balance || 0).toFixed(2)}</td>
+
+            <td>$${Number(user.referralEarnings || 0).toFixed(2)}</td>
+
+            <td>${user.membership}</td>
+
+            <td>
+                <button onclick="activateUser('${docSnap.id}')">
+                    Activate
+                </button>
+            </td>
+
+        </tr>
+        `;
+
+    });
+
+    document.getElementById("adminTotalUsers").innerText = totalUsers;
+
+    document.getElementById("adminActiveUsers").innerText = activeUsers;
+
+    document.getElementById("adminPendingWithdrawals").innerText = "0";
+
+}
