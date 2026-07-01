@@ -47,7 +47,7 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     console.log("Admin verified successfully.");
-
+await loadUsers();
 });
 async function loadUsers() {
 
