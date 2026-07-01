@@ -45,7 +45,44 @@
         <p class="stat-value" id="adminPendingWithdrawals">0</p>
       </div>
     </div>
+<div class="dashboard-card">
 
+<h2>Create New Task</h2>
+
+<input
+type="text"
+id="taskTitle"
+placeholder="Task Title"
+class="form-input">
+
+<br><br>
+
+<textarea
+id="taskDescription"
+placeholder="Task Description"
+rows="5"
+class="form-input">
+</textarea>
+
+<br><br>
+
+<input
+type="number"
+id="taskBudget"
+placeholder="Budget ($)"
+class="form-input">
+
+<br><br>
+
+<button
+class="btn primary"
+onclick="createTask()">
+
+Publish Task
+
+</button>
+
+</div>
     <!-- USERS TABLE -->
     <div class="dashboard-card">
       <h2>Registered Users</h2>
