@@ -51,7 +51,30 @@ onAuthStateChanged(auth, async (user) => {
 await loadUsers();
 });
 async function loadUsers() {
+async function activateUser(userId) {
 
+    try {
+
+        await updateDoc(doc(db, "users", userId), {
+
+            membership: "Active"
+
+        });
+
+        alert("User activated successfully!");
+
+        await loadUsers();
+
+    } catch (error) {
+
+        alert(error.message);
+
+    }
+
+}
+
+// Make it available to the button
+window.activateUser = activateUser;
     const usersTable = document.getElementById("adminUsersTable");
 
     usersTable.innerHTML = "";
