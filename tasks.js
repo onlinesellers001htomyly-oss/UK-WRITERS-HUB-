@@ -79,8 +79,54 @@ Place Bid
 
 });
 
-window.placeBid=function(taskId){
+window.placeBid = async function(taskId){
 
-alert("Bidding system coming in the next step.\nTask ID: "+taskId);
+const authUser = auth.currentUser;
+
+if(!authUser){
+
+alert("Please login first.");
+
+return;
+
+}
+
+const amount = prompt("Enter your bid amount in USD:");
+
+if(amount===null) return;
+
+const bidAmount = parseFloat(amount);
+
+if(isNaN(bidAmount) || bidAmount<=0){
+
+alert("Enter a valid bid amount.");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"bids"),{
+
+taskId:taskId,
+
+userId:authUser.uid,
+
+bidAmount:bidAmount,
+
+status:"Pending",
+
+createdAt:new Date()
+
+});
+
+alert("✅ Your bid has been submitted successfully.");
+
+}catch(error){
+
+alert(error.message);
+
+}
 
 };
