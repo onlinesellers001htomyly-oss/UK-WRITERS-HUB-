@@ -132,3 +132,54 @@ window.activateUser = activateUser;
     document.getElementById("adminPendingWithdrawals").innerText = "0";
 
 }
+async function createTask(){
+
+const title=document.getElementById("taskTitle").value.trim();
+
+const description=document.getElementById("taskDescription").value.trim();
+
+const budget=parseFloat(document.getElementById("taskBudget").value);
+
+if(title===""||description===""||isNaN(budget)){
+
+alert("Please complete all task details.");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"tasks"),{
+
+title:title,
+
+description:description,
+
+budget:budget,
+
+status:"Open",
+
+createdAt:new Date(),
+
+bids:0
+
+});
+
+alert("Task published successfully.");
+
+document.getElementById("taskTitle").value="";
+
+document.getElementById("taskDescription").value="";
+
+document.getElementById("taskBudget").value="";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+}
+
+window.createTask=createTask;
