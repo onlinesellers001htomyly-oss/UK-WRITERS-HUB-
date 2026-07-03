@@ -76,7 +76,68 @@ async function activateUser(userId) {
     }
 
 }
+async function loadBids(){
 
+const table=document.getElementById("adminBidsTable");
+
+if(!table) return;
+
+table.innerHTML="";
+
+const snapshot=await getDocs(
+
+query(
+
+collection(db,"bids"),
+
+orderBy("createdAt","desc")
+
+)
+
+);
+
+snapshot.forEach(docSnap=>{
+
+const bid=docSnap.data();
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${bid.taskId}</td>
+
+<td>${bid.userId}</td>
+
+<td>$${Number(bid.bidAmount).toFixed(2)}</td>
+
+<td>${bid.status}</td>
+
+<td>${new Date(bid.createdAt.seconds*1000).toLocaleString()}</td>
+
+<td>
+
+<button onclick="approveBid('${docSnap.id}')">
+
+Approve
+
+</button>
+
+<button onclick="rejectBid('${docSnap.id}')">
+
+Reject
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+            }
+    
 // Make it available to the button
 window.activateUser = activateUser;
     const usersTable = document.getElementById("adminUsersTable");
