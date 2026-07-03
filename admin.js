@@ -68,6 +68,7 @@ async function activateUser(userId) {
         alert("User activated successfully!");
 
         await loadUsers();
+        await loadBids();
 
     } catch (error) {
 
