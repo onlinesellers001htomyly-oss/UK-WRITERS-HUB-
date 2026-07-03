@@ -10,8 +10,11 @@ getDoc,
 collection,
 getDocs,
 updateDoc,
-addDoc
-} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+addDoc,
+query,
+orderBy
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const ADMIN_EMAIL = "muindithomas16@gmail.com";
 
