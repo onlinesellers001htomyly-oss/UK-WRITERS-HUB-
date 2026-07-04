@@ -248,3 +248,34 @@ alert(error.message);
 }
 
 window.createTask=createTask;
+async function approveBid(id){
+
+await updateDoc(doc(db,"bids",id),{
+
+status:"Approved"
+
+});
+
+alert("Bid approved.");
+
+await loadBids();
+
+}
+
+async function rejectBid(id){
+
+await updateDoc(doc(db,"bids",id),{
+
+status:"Rejected"
+
+});
+
+alert("Bid rejected.");
+
+await loadBids();
+
+}
+
+window.approveBid=approveBid;
+
+window.rejectBid=rejectBid;
