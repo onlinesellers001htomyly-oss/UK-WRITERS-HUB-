@@ -64,24 +64,6 @@ This is where Daraja STK Push will be called later.
 
 paymentMessage.innerHTML="⏳ Processing payment...";
 
-setTimeout(async()=>{
 
-await updateDoc(doc(db,"users",currentUser.uid),{
-
-membership:"Active"
-
-});
-
-membershipStatus.innerText="Active";
-
-paymentMessage.innerHTML="<span class='success'>✅ Membership activated successfully.</span>";
-
-setTimeout(()=>{
-
-window.location="dashboard.html";
-
-},2000);
-
-},3000);
 
 });
