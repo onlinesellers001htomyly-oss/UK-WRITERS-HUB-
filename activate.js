@@ -63,6 +63,29 @@ This is where Daraja STK Push will be called later.
 */
 
 paymentMessage.innerHTML="⏳ Processing payment...";
+    await addDoc(collection(db, "payments"), {
+
+    userId: currentUser.uid,
+
+    fullname: (await getDoc(doc(db, "users", currentUser.uid))).data().fullname,
+
+    email: currentUser.email,
+
+    phone: phone,
+
+    amount: 10,
+
+    currency: "USD",
+
+    tillNumber: "6892947",
+
+    paymentMethod: "M-PESA",
+
+    status: "Pending",
+
+    createdAt: serverTimestamp()
+
+});
 
 await addDoc(collection(db, "payments"), {
     userId: currentUser.uid,
