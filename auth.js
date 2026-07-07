@@ -23,7 +23,28 @@ const snap=await getDoc(doc(db,"users",user.uid));
 if(snap.exists()){
 
 const data=snap.data();
+const warning = document.getElementById("accessWarning");
+const activateSection = document.getElementById("activateSection");
 
+if (warning && activateSection) {
+
+    if (data.membership === "Active") {
+
+        warning.innerHTML =
+        "<span style='color:green;font-weight:bold;'>✅ Your membership is Active.</span>";
+
+        activateSection.style.display = "none";
+
+    } else {
+
+        warning.innerHTML =
+        "<span style='color:red;font-weight:bold;'>⚠ Your membership is Pending. Please activate your account to unlock all features.</span>";
+
+        activateSection.style.display = "block";
+
+    }
+
+  }
 document.getElementById("welcomeName").textContent=data.fullname;
 
 document.getElementById("userBalance").textContent="$"+Number(data.balance).toFixed(2);
