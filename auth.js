@@ -47,9 +47,11 @@ if (warning && activateSection) {
   }
 document.getElementById("welcomeName").textContent=data.fullname;
 
-document.getElementById("userBalance").textContent="$"+Number(data.balance).toFixed(2);
+document.getElementById("userBalance").textContent =
+"$" + Number(data.balance || 0).toFixed(2);
 
-document.getElementById("referralEarnings").textContent="$"+Number(data.referralEarnings).toFixed(2);
+document.getElementById("referralEarnings").textContent =
+"$" + Number(data.referralEarnings || 0).toFixed(2);
 
 document.getElementById("accountStatus").textContent=data.membership;
 
