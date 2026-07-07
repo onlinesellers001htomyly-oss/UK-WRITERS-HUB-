@@ -90,3 +90,23 @@ usersSnapshot.forEach((userDoc) => {
 document.getElementById("adminTotalUsers").textContent = totalUsers;
 
 document.getElementById("adminActiveUsers").textContent = activeUsers;
+    window.approveMembership = async function(paymentId, userId) {
+
+    if (!confirm("Approve this membership payment?")) {
+        return;
+    }
+
+    // Update the user's membership
+    await updateDoc(doc(db, "users", userId), {
+        membership: "Active"
+    });
+
+    // Update the payment status
+    await updateDoc(doc(db, "payments", paymentId), {
+        status: "Approved"
+    });
+
+    alert("Membership approved successfully.");
+
+    location.reload();
+        }
