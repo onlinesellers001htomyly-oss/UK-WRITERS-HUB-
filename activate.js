@@ -64,6 +64,15 @@ This is where Daraja STK Push will be called later.
 
 paymentMessage.innerHTML="⏳ Processing payment...";
 
+await addDoc(collection(db, "payments"), {
+    userId: currentUser.uid,
+    phone: phone,
+    amount: 10,
+    status: "Pending",
+    createdAt: serverTimestamp()
+});
 
+paymentMessage.innerHTML =
+"<span class='success'>✅ Payment request submitted successfully. Please complete your M-PESA payment. Your membership will be activated after payment confirmation.</span>";
 
 });
