@@ -38,6 +38,55 @@ onAuthStateChanged(auth, async (user) => {
         return;
     }
 
-    console.log("Administrator logged in successfully.");
+    // Load all registered users
+
+const usersSnapshot = await getDocs(collection(db, "users"));
+
+const table = document.getElementById("adminUsersTable");
+
+table.innerHTML = "";
+
+let totalUsers = 0;
+let activeUsers = 0;
+
+usersSnapshot.forEach((userDoc) => {
+
+    totalUsers++;
+
+    const user = userDoc.data();
+
+    if (user.membership === "Active") {
+        activeUsers++;
+    }
+
+    table.innerHTML += `
+    <tr>
+
+        <td>${user.fullname}</td>
+
+        <td>${user.email}</td>
+
+        <td>${user.phone || "-"}</td>
+
+        <td>${user.referralCode || "-"}</td>
+
+        <td>${user.referredBy || "None"}</td>
+
+        <td>$${Number(user.balance || 0).toFixed(2)}</td>
+
+        <td>$${Number(user.referralEarnings || 0).toFixed(2)}</td>
+
+        <td>${user.membership}</td>
+
+        <td>
+            Coming Soon
+        </td>
+
+    </tr>
+    `;
 
 });
+
+document.getElementById("adminTotalUsers").textContent = totalUsers;
+
+document.getElementById("adminActiveUsers").textContent = activeUsers;
