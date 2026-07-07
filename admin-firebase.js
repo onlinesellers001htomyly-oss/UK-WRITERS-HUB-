@@ -89,7 +89,32 @@ usersSnapshot.forEach((userDoc) => {
 });
 
 document.getElementById("adminTotalUsers").textContent = totalUsers;
+// Load payment requests
+const paymentsSnapshot = await getDocs(collection(db, "payments"));
 
+const paymentsTable = document.getElementById("paymentsTable");
+
+paymentsTable.innerHTML = "";
+
+paymentsSnapshot.forEach((paymentDoc) => {
+
+    const payment = paymentDoc.data();
+
+    paymentsTable.innerHTML += `
+    <tr>
+        <td>${payment.fullname || "-"}</td>
+        <td>${payment.email || "-"}</td>
+        <td>${payment.phone}</td>
+        <td>$${payment.amount} ${payment.currency || "USD"}</td>
+        <td>${payment.status}</td>
+        <td>
+            <button onclick="approveMembership('${paymentDoc.id}','${payment.userId}')">
+                Approve
+            </button>
+        </td>
+    </tr>
+    `;
+});
 document.getElementById("adminActiveUsers").textContent = activeUsers;
     window.approveMembership = async function(paymentId, userId) {
 
