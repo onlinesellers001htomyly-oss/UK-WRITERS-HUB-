@@ -145,13 +145,15 @@ const data=snap.data();
 
 /* Change this email to your admin email */
 
-if(data.email==="youradmin@email.com"){
+const ADMIN_EMAIL = "adminukwritershubcompany@gmail.com";
 
-window.location="admin.html";
+if (data.email === ADMIN_EMAIL) {
 
-}else{
+    window.location = "admin.html";
 
-window.location="dashboard.html";
+} else {
+
+    window.location = "dashboard.html";
 
 }
 
