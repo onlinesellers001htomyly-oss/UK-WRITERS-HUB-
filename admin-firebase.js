@@ -80,8 +80,10 @@ usersSnapshot.forEach((userDoc) => {
         <td>${user.membership}</td>
 
         <td>
-            Coming Soon
-        </td>
+    <button onclick="approveUser('${userDoc.id}')">
+        Approve
+    </button>
+</td>
 
     </tr>
     `;
