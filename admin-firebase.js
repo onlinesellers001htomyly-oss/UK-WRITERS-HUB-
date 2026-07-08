@@ -138,3 +138,32 @@ document.getElementById("adminActiveUsers").textContent = activeUsers;
 
     location.reload();
         }
+window.approveUser = async function(userId) {
+
+    const confirmApproval = confirm(
+        "Activate this user's membership?"
+    );
+
+    if (!confirmApproval) return;
+
+    try {
+
+        await updateDoc(doc(db, "users", userId), {
+
+            membership: "Active"
+
+        });
+
+        alert("Membership activated successfully.");
+
+        location.reload();
+
+    } catch(error) {
+
+        console.error(error);
+
+        alert("Failed to activate membership.");
+
+    }
+
+};
