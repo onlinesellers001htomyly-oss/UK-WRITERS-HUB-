@@ -30,7 +30,13 @@ onAuthStateChanged(auth, async (user) => {
 
     const data = snap.data();
 
-    if (data.email !== ADMIN_EMAIL) {
+    if (data.role !== "admin") {
+    alert("Access denied.");
+
+    window.location = "dashboard.html";
+
+    return;
+    }
 
         alert("Access denied. Administrator only.");
 
