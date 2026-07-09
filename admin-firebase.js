@@ -176,7 +176,33 @@ withdrawalsSnapshot.forEach((withdrawDoc)=>{
     await updateDoc(doc(db, "users", userId), {
         membership: "Active"
     });
+const activatedUser = (await getDoc(doc(db, "users", userId))).data();
 
+if (activatedUser.referredBy) {
+
+    const q = query(
+        collection(db, "users"),
+        where("referralCode", "==", activatedUser.referredBy)
+    );
+
+    const referrerSnapshot = await getDocs(q);
+
+    referrerSnapshot.forEach(async (referrerDoc) => {
+
+        const referrer = referrerDoc.data();
+
+        await updateDoc(doc(db, "users", referrerDoc.id), {
+
+            balance: Number(referrer.balance || 0) + 3,
+
+            referralEarnings:
+                Number(referrer.referralEarnings || 0) + 3
+
+        });
+
+    });
+
+                            }
     // Update the payment status
     await updateDoc(doc(db, "payments", paymentId), {
         status: "Approved"
