@@ -129,7 +129,48 @@ document.getElementById("adminActiveUsers").textContent = activeUsers;
     if (!confirm("Approve this membership payment?")) {
         return;
     }
+// Load withdrawal requests
 
+const withdrawalsSnapshot =
+await getDocs(collection(db,"withdrawals"));
+
+const withdrawalsTable =
+document.getElementById("adminWithdrawalsTable");
+
+withdrawalsTable.innerHTML = "";
+
+withdrawalsSnapshot.forEach((withdrawDoc)=>{
+
+    const withdraw = withdrawDoc.data();
+
+    withdrawalsTable.innerHTML += `
+
+    <tr>
+
+        <td>${withdraw.fullname}</td>
+
+        <td>${withdraw.email}</td>
+
+        <td>$${withdraw.amount}</td>
+
+        <td>${withdraw.method}</td>
+
+        <td>${withdraw.details}</td>
+
+        <td>${withdraw.status}</td>
+
+        <td>
+            <button
+            onclick="approveWithdrawal('${withdrawDoc.id}','${withdraw.userId}',${withdraw.amount})">
+            Approve
+            </button>
+        </td>
+
+    </tr>
+
+    `;
+
+});
     // Update the user's membership
     await updateDoc(doc(db, "users", userId), {
         membership: "Active"
