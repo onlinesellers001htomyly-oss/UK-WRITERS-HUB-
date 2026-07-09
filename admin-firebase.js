@@ -5,12 +5,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 import {
-    doc,
-    getDoc,
-    getDocs,
-    collection,
-    updateDoc
-} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+doc,
+getDoc,
+getDocs,
+collection,
+updateDoc
+}
+from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const ADMIN_EMAIL = "adminukwritershubcompany@gmail.com";
 
