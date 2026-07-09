@@ -214,3 +214,63 @@ window.approveUser = async function(userId) {
     }
 
 };
+window.approveWithdrawal = async function(withdrawId,userId,amount){
+
+    if(!confirm("Approve this withdrawal?")){
+
+        return;
+
+    }
+
+    try{
+
+        const userRef = doc(db,"users",userId);
+
+        const snap = await getDoc(userRef);
+
+        if(!snap.exists()){
+
+            alert("User not found.");
+
+            return;
+
+        }
+
+        const data = snap.data();
+
+        const newBalance =
+        Number(data.balance || 0) - Number(amount);
+
+        if(newBalance < 0){
+
+            alert("Insufficient balance.");
+
+            return;
+
+        }
+
+        await updateDoc(userRef,{
+
+            balance:newBalance
+
+        });
+
+        await updateDoc(doc(db,"withdrawals",withdrawId),{
+
+            status:"Approved"
+
+        });
+
+        alert("Withdrawal approved successfully.");
+
+        location.reload();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Failed to approve withdrawal.");
+
+    }
+
+}
