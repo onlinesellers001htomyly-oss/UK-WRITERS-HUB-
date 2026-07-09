@@ -117,7 +117,8 @@ onAuthStateChanged(auth, async(user)=>{
     }
 
     const data = snap.data();
-
+currentUser = user;
+currentUserData = data;
     const withdrawButton = document.getElementById("withdrawButton");
 
     const message = document.getElementById("withdrawMessage");
