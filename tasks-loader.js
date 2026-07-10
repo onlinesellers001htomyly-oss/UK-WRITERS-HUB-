@@ -39,11 +39,12 @@ async function loadTasks() {
 
             <p class="price">$${task.budget}</p>
 
-            <button onclick="alert('Bidding feature coming next.')">
+            <button
+onclick="window.location='bid.html?task=${taskDoc.id}'">
 
-                Place Bid
+Place Bid
 
-            </button>
+</button>
 
         </div>
 
