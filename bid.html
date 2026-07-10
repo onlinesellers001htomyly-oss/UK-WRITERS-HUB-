@@ -7,6 +7,8 @@
 
 <title>Submit Bid | UK WRITERS HUB</title>
 
+<link rel="stylesheet" href="style.css">
+
 <style>
 
 body{
@@ -47,7 +49,8 @@ margin-top:15px;
 font-weight:bold;
 }
 
-input, textarea{
+input,
+textarea{
 width:100%;
 padding:12px;
 margin-top:5px;
@@ -79,6 +82,12 @@ font-weight:bold;
 color:green;
 }
 
+#message{
+margin-top:20px;
+font-weight:bold;
+text-align:center;
+}
+
 </style>
 
 </head>
@@ -87,7 +96,7 @@ color:green;
 
 <header>
 
-<h1>UK WRITERS HUB</h1>
+<h1>🇬🇧 UK WRITERS HUB</h1>
 
 <p>Submit Your Bid</p>
 
@@ -97,15 +106,35 @@ color:green;
 
 <div class="card">
 
-<h2>Writing Job</h2>
+<h2 id="taskTitle">
 
-<p><strong>Title:</strong> Technology Article</p>
+Loading Task...
 
-<p><strong>Description:</strong> Write a well-researched 1,000-word article about Artificial Intelligence.</p>
+</h2>
 
-<p><strong>Deadline:</strong> 3 Days</p>
+<p>
 
-<p class="job-price">$25 Budget</p>
+<strong>Description:</strong>
+
+<span id="taskDescription"></span>
+
+</p>
+
+<p>
+
+<strong>Deadline:</strong>
+
+<span id="taskDeadline"></span>
+
+</p>
+
+<p class="job-price">
+
+$<span id="taskBudget"></span>
+
+Budget
+
+</p>
 
 </div>
 
@@ -113,19 +142,31 @@ color:green;
 
 <h2>Your Proposal</h2>
 
-<form>
+<form id="bidForm">
 
-<label>Your Bid Amount ($)</label>
+<label>Your Bid Amount (USD)</label>
 
-<input type="number" placeholder="Enter your bid">
+<input
+type="number"
+id="bidAmount"
+placeholder="Enter your bid amount"
+required>
 
 <label>Delivery Time (Days)</label>
 
-<input type="number" placeholder="Example: 2">
+<input
+type="number"
+id="completionDays"
+placeholder="Example: 2"
+required>
 
 <label>Proposal</label>
 
-<textarea rows="6" placeholder="Explain why you are the best person for this task"></textarea>
+<textarea
+id="proposal"
+rows="6"
+placeholder="Explain why you are the best person for this task"
+required></textarea>
 
 <button type="submit">
 
@@ -135,9 +176,13 @@ Submit Bid
 
 </form>
 
+<p id="message"></p>
+
 </div>
 
 </div>
+
+<script type="module" src="bid-firebase.js"></script>
 
 </body>
   </html>
