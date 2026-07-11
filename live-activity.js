@@ -56,8 +56,7 @@ document.getElementById("liveEarn").innerHTML=
 
 setInterval(()=>{
 
-const member=
-names[Math.floor(Math.random()*names.length)];
+const member = randomMember();
 
 const amount=
 Math.floor(Math.random()*250)+50;
