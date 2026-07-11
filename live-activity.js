@@ -40,8 +40,7 @@ Math.floor(Math.random()*999999)+1
 
 setInterval(()=>{
 
-const member=
-names[Math.floor(Math.random()*names.length)];
+const member = randomMember();
 
 const service=
 services[Math.floor(Math.random()*services.length)];
