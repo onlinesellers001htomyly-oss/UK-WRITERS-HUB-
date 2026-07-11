@@ -4,25 +4,83 @@ const services=[
 
 "Essay Writing",
 
-"Research Project",
+"Research Writing",
+
+"Article Writing",
+
+"Blog Writing",
+
+"Copywriting",
+
+"Technical Writing",
+
+"Proofreading",
+
+"Editing",
 
 "Data Entry",
 
 "Virtual Assistant",
 
+"Programming",
+
+"Website Development",
+
+"Mobile App Development",
+
 "Graphic Design",
 
-"Programming",
+"Logo Design",
+
+"UI/UX Design",
+
+"Video Editing",
+
+"Animation",
 
 "Translation",
 
-"AI Services",
+"Transcription",
 
-"Blog Writing",
+"Resume Writing",
+
+"Business Plan Writing",
 
 "SEO Writing",
 
-"Digital Marketing"
+"Digital Marketing",
+
+"Social Media Management",
+
+"Email Marketing",
+
+"Lead Generation",
+
+"AI Prompt Engineering",
+
+"Machine Learning",
+
+"Data Analysis",
+
+"Excel Projects",
+
+"PowerPoint Design",
+
+"Online Tutoring",
+
+"Mathematics Tutoring",
+
+"Chemistry Tutoring",
+
+"Physics Tutoring",
+
+"Survey Tasks",
+
+"Affiliate Marketing",
+
+"E-commerce",
+
+"Customer Support"
 
 ];
 
