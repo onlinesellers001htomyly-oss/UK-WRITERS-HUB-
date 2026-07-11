@@ -26,25 +26,17 @@ const services=[
 
 ];
 
-const names=[
+function randomMember(){
 
-"Member 1245",
+return "Member " +
 
-"Member 2864",
+String(
 
-"Member 3471",
+Math.floor(Math.random()*999999)+1
 
-"Member 5219",
+).padStart(6,"0");
 
-"Member 6842",
-
-"Member 7033",
-
-"Member 8127",
-
-"Member 9518"
-
-];
+}
 
 setInterval(()=>{
 
