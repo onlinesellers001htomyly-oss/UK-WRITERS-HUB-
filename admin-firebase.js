@@ -527,3 +527,157 @@ Approve
 
 
         }
+// ==============================
+// ACTIVATE USER
+// ==============================
+
+window.approveUser = async function(userId){
+
+    if(!confirm("Activate this user's membership?")){
+        return;
+    }
+
+    try{
+
+        await updateDoc(doc(db,"users",userId),{
+
+            membership:"Active"
+
+        });
+
+        alert("Membership activated successfully.");
+
+        location.reload();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+};
+
+
+// ==============================
+// APPROVE WITHDRAWAL
+// ==============================
+
+window.approveWithdrawal = async function(withdrawId,userId,amount){
+
+    if(!confirm("Approve this withdrawal?")){
+        return;
+    }
+
+    try{
+
+        const userRef = doc(db,"users",userId);
+
+        const snap = await getDoc(userRef);
+
+        if(!snap.exists()){
+
+            alert("User not found.");
+
+            return;
+
+        }
+
+        const user = snap.data();
+
+        const balance = Number(user.balance || 0);
+
+        if(balance < Number(amount)){
+
+            alert("Insufficient balance.");
+
+            return;
+
+        }
+
+        await updateDoc(userRef,{
+
+            balance: balance - Number(amount)
+
+        });
+
+        await updateDoc(doc(db,"withdrawals",withdrawId),{
+
+            status:"Approved"
+
+        });
+
+        alert("Withdrawal approved successfully.");
+
+        location.reload();
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+};
+
+
+// ==============================
+// CREATE TASK
+// ==============================
+
+window.createTask = async function(){
+
+    const title =
+    document.getElementById("taskTitle").value.trim();
+
+    const description =
+    document.getElementById("taskDescription").value.trim();
+
+    const budget =
+    Number(document.getElementById("taskBudget").value);
+
+    if(title==="" || description==="" || budget<=0){
+
+        alert("Please complete all task details.");
+
+        return;
+
+    }
+
+    try{
+
+        await addDoc(collection(db,"tasks"),{
+
+            title,
+
+            description,
+
+            budget,
+
+            status:"Open",
+
+            bids:0,
+
+            createdAt:new Date()
+
+        });
+
+        alert("Task published successfully.");
+
+        document.getElementById("taskTitle").value="";
+
+        document.getElementById("taskDescription").value="";
+
+        document.getElementById("taskBudget").value="";
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(error.message);
+
+    }
+
+};
