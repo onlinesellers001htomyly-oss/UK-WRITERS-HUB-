@@ -169,3 +169,361 @@ active;
 
 
 }
+// ==============================
+// LOAD PAYMENT REQUESTS
+// ==============================
+
+
+async function loadPayments(){
+
+
+const table =
+document.getElementById("paymentsTable");
+
+
+if(!table) return;
+
+
+table.innerHTML="";
+
+
+const snapshot =
+await getDocs(collection(db,"payments"));
+
+
+
+if(snapshot.empty){
+
+table.innerHTML = `
+<tr>
+<td colspan="6">
+No payment requests.
+</td>
+</tr>
+`;
+
+return;
+
+}
+
+
+
+snapshot.forEach((paymentDoc)=>{
+
+
+const payment = paymentDoc.data();
+
+
+
+table.innerHTML += `
+
+<tr>
+
+<td>${payment.fullname || "-"}</td>
+
+<td>${payment.email || "-"}</td>
+
+<td>${payment.phone || "-"}</td>
+
+<td>
+$${payment.amount || 0}
+${payment.currency || "USD"}
+</td>
+
+
+<td>
+${payment.status || "Pending"}
+</td>
+
+
+<td>
+
+<button onclick="approveMembership(
+'${paymentDoc.id}',
+'${payment.userId}'
+)">
+
+Approve
+
+</button>
+
+</td>
+
+
+</tr>
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+// ==============================
+// APPROVE MEMBERSHIP PAYMENT
+// ==============================
+
+
+window.approveMembership = async function(
+paymentId,
+userId
+){
+
+
+if(!confirm("Approve this membership payment?")){
+
+return;
+
+}
+
+
+
+try{
+
+
+await updateDoc(
+
+doc(db,"users",userId),
+
+{
+
+membership:"Active"
+
+}
+
+);
+
+
+
+// Update payment status
+
+
+await updateDoc(
+
+doc(db,"payments",paymentId),
+
+{
+
+status:"Approved"
+
+}
+
+);
+
+
+
+// Referral bonus
+
+const userSnap =
+await getDoc(doc(db,"users",userId));
+
+
+if(userSnap.exists()){
+
+
+const user =
+userSnap.data();
+
+
+
+if(user.referredBy){
+
+
+
+const q=query(
+
+collection(db,"users"),
+
+where(
+"referralCode",
+"==",
+user.referredBy
+)
+
+);
+
+
+
+const refSnapshot =
+await getDocs(q);
+
+
+
+refSnapshot.forEach(async(refDoc)=>{
+
+
+const refUser =
+refDoc.data();
+
+
+
+await updateDoc(
+
+doc(db,"users",refDoc.id),
+
+{
+
+balance:
+Number(refUser.balance || 0)+3,
+
+
+referralEarnings:
+Number(refUser.referralEarnings || 0)+3
+
+}
+
+);
+
+
+
+});
+
+
+}
+
+
+
+}
+
+
+
+alert("Membership approved successfully.");
+
+location.reload();
+
+
+
+}catch(error){
+
+
+console.error(error);
+
+alert(error.message);
+
+
+}
+
+
+
+};
+
+
+
+// ==============================
+// LOAD WITHDRAWALS
+// ==============================
+
+
+async function loadWithdrawals(){
+
+
+const table =
+document.getElementById("adminWithdrawalsTable");
+
+
+if(!table) return;
+
+
+table.innerHTML="";
+
+
+const snapshot =
+await getDocs(collection(db,"withdrawals"));
+
+
+
+if(snapshot.empty){
+
+table.innerHTML=`
+
+<tr>
+
+<td colspan="8">
+
+No withdrawal requests found.
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+
+
+snapshot.forEach((withdrawDoc)=>{
+
+
+const withdraw =
+withdrawDoc.data();
+
+
+
+table.innerHTML += `
+
+<tr>
+
+
+<td>${withdraw.fullname || "-"}</td>
+
+
+<td>${withdraw.email || "-"}</td>
+
+
+<td>
+$${withdraw.amount || 0}
+</td>
+
+
+<td>
+${withdraw.method || "-"}
+</td>
+
+
+<td>
+${withdraw.details || "-"}
+</td>
+
+
+<td>
+${withdraw.status || "Pending"}
+</td>
+
+
+<td>
+${withdraw.date || "-"}
+</td>
+
+
+<td>
+
+<button onclick="approveWithdrawal(
+'${withdrawDoc.id}',
+'${withdraw.userId}',
+${withdraw.amount}
+)">
+
+Approve
+
+</button>
+
+
+</td>
+
+
+</tr>
+
+
+`;
+
+});
+
+
+        }
