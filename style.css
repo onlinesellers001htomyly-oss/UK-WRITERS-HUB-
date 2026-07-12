@@ -650,3 +650,182 @@ transition:all .3s ease;
 color:#1565C0;
 
   }
+/* ===============================
+   PROFESSIONAL AUTH PAGES
+================================ */
+
+.auth-section{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    background:linear-gradient(135deg,#eef5ff,#dfefff);
+}
+
+.auth-card{
+
+    width:100%;
+    max-width:520px;
+
+    background:#ffffff;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+    animation:fadeIn .6s ease;
+
+}
+
+.auth-card h1{
+
+    margin:0;
+
+    text-align:center;
+
+    color:#1565C0;
+
+    font-size:30px;
+
+}
+
+.auth-subtitle{
+
+    text-align:center;
+
+    color:#555;
+
+    margin:15px 0 30px;
+
+    line-height:1.7;
+
+}
+
+.auth-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.auth-form input{
+
+    width:100%;
+
+    height:58px;
+
+    padding:0 18px;
+
+    border:2px solid #d6e4ff;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    transition:.3s;
+
+    box-sizing:border-box;
+
+    background:#fafcff;
+
+}
+
+.auth-form input:focus{
+
+    outline:none;
+
+    border-color:#1565C0;
+
+    box-shadow:0 0 8px rgba(21,101,192,.25);
+
+    background:#fff;
+
+}
+
+.auth-form button{
+
+    height:58px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1565C0;
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.auth-form button:hover{
+
+    background:#0d47a1;
+
+    transform:translateY(-2px);
+
+}
+
+.auth-card a{
+
+    color:#1565C0;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.auth-card a:hover{
+
+    text-decoration:underline;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:600px){
+
+.auth-card{
+
+padding:25px;
+
+}
+
+.auth-card h1{
+
+font-size:25px;
+
+}
+
+  }
