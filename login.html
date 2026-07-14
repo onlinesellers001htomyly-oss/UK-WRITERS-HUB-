@@ -101,7 +101,8 @@ Forgot Password?
 import { auth, db } from "./firebase.js";
 
 import {
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 import {
@@ -133,12 +134,13 @@ form.addEventListener("submit", async (e) => {
         const user = userCredential.user;
 
         const userRef = doc(db, "users", user.uid);
-
         const snap = await getDoc(userRef);
 
         if (!snap.exists()) {
 
-            alert("Your profile was not found. Please contact the administrator.");
+            alert("Your account profile is missing. Please contact the administrator.");
+
+            await signOut(auth);
 
             btn.disabled = false;
             btn.innerHTML = "Login";
@@ -162,32 +164,32 @@ form.addEventListener("submit", async (e) => {
 
         console.error(error);
 
-        if (error.code === "auth/invalid-credential") {
+        switch (error.code) {
 
-            alert("Invalid email or password.");
+            case "auth/invalid-credential":
+            case "auth/wrong-password":
+                alert("Invalid email or password.");
+                break;
 
-        } else if (error.code === "auth/user-not-found") {
+            case "auth/user-not-found":
+                alert("No account exists with this email.");
+                break;
 
-            alert("Account not found.");
+            case "auth/too-many-requests":
+                alert("Too many failed login attempts. Please try again later.");
+                break;
 
-        } else if (error.code === "auth/wrong-password") {
-
-            alert("Incorrect password.");
-
-        } else {
-
-            alert(error.message);
-
+            default:
+                alert(error.message);
         }
 
         btn.disabled = false;
         btn.innerHTML = "Login";
-
     }
 
 });
 
-      </script>
+  </script>
 
 <script src="script.js"></script>
 
