@@ -19,24 +19,7 @@ function getBaseUrl() {
   return window.location.origin + basePath + "register.html";
 }
 
-/* -------------------------
-   STORAGE HELPERS
--------------------------- */
-function getUsers() {
-  return JSON.parse(localStorage.getItem("ukwh_users")) || [];
-}
 
-function saveUsers(users) {
-  localStorage.setItem("ukwh_users", JSON.stringify(users));
-}
-
-function getLoggedInUser() {
-  return JSON.parse(localStorage.getItem("ukwh_logged_in_user"));
-}
-
-function saveLoggedInUser(user) {
-  localStorage.setItem("ukwh_logged_in_user", JSON.stringify(user));
-}
 
 /* -------------------------
    REGISTER USER
