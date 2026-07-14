@@ -159,17 +159,13 @@ before accessing tasks.
 import { auth, db } from "./firebase.js";
 
 import {
-
 createUserWithEmailAndPassword
-
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 import {
-
 doc,
-
-setDoc
-
+setDoc,
+serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -182,7 +178,7 @@ e.preventDefault();
 
 const fullname=document.getElementById("fullName").value.trim();
 
-const email=document.getElementById("email").value.trim();
+const email=document.getElementById("email").value.trim().toLowerCase();
 
 const phone=document.getElementById("phone").value.trim();
 
@@ -200,7 +196,9 @@ return;
 
 try{
 
-const userCredential=await createUserWithEmailAndPassword(
+const userCredential=
+
+await createUserWithEmailAndPassword(
 
 auth,
 
@@ -212,19 +210,21 @@ password
 
 const user=userCredential.user;
 
-const referralCode="UKH"+user.uid.substring(0,8).toUpperCase();
+const referralCode=
+
+"UKH"+user.uid.substring(0,8).toUpperCase();
 
 await setDoc(doc(db,"users",user.uid),{
 
-fullname:fullname,
+fullname,
 
-email:email,
+email,
 
-phone:phone,
+phone,
 
-referralCode:referralCode,
+role:"member",
 
-referredBy:referredBy,
+membership:"Pending",
 
 balance:0,
 
@@ -234,13 +234,15 @@ taskEarnings:0,
 
 totalReferrals:0,
 
-membership:"Pending",
+referralCode,
 
-createdAt:new Date()
+referredBy,
+
+createdAt:serverTimestamp()
 
 });
 
-alert("Registration successful! Please login.");
+alert("Registration successful. You can now login.");
 
 window.location="login.html";
 
@@ -248,11 +250,13 @@ window.location="login.html";
 
 alert(error.message);
 
+console.error(error);
+
 }
 
 });
 
-</script>
+  </script>
 
 <script src="script.js"></script>
 
