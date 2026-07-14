@@ -177,6 +177,9 @@ const form = document.getElementById("registerForm");
 form.addEventListener("submit", async (e) => {
 
 e.preventDefault();
+  const btn = form.querySelector("button");
+btn.disabled = true;
+btn.innerHTML = "Creating Account...";
 
 const fullname=document.getElementById("fullName").value.trim();
 
