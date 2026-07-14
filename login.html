@@ -101,76 +101,93 @@ Forgot Password?
 import { auth, db } from "./firebase.js";
 
 import {
-
-signInWithEmailAndPassword
-
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
 import {
-
-doc,
-
-getDoc
-
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-document.getElementById("loginForm").addEventListener("submit",async(e)=>{
+const form = document.getElementById("loginForm");
 
-e.preventDefault();
+form.addEventListener("submit", async (e) => {
 
-const email=document.getElementById("email").value;
+    e.preventDefault();
 
-const password=document.getElementById("password").value;
+    const btn = form.querySelector("button");
+    btn.disabled = true;
+    btn.innerHTML = "Signing In...";
 
-try{
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value;
 
-const userCredential=await signInWithEmailAndPassword(
+    try {
 
-auth,
+        const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+        );
 
-email,
+        const user = userCredential.user;
 
-password
+        const userRef = doc(db, "users", user.uid);
 
-);
+        const snap = await getDoc(userRef);
 
-const user=userCredential.user;
+        if (!snap.exists()) {
 
-const snap=await getDoc(doc(db,"users",user.uid));
+            alert("Your profile was not found. Please contact the administrator.");
 
-if(!snap.exists()){
+            btn.disabled = false;
+            btn.innerHTML = "Login";
 
-alert("User profile not found.");
+            return;
+        }
 
-return;
+        const data = snap.data();
 
-}
+        if (data.role === "admin") {
 
-const data=snap.data();
+            window.location = "admin.html";
 
-/* Change this email to your admin email */
+        } else {
 
-const ADMIN_EMAIL = "adminukwritershubcompany@gmail.com";
+            window.location = "dashboard.html";
 
-if (data.email === ADMIN_EMAIL) {
+        }
 
-    window.location = "admin.html";
+    } catch (error) {
 
-} else {
+        console.error(error);
 
-    window.location = "dashboard.html";
+        if (error.code === "auth/invalid-credential") {
 
-}
+            alert("Invalid email or password.");
 
-}catch(error){
+        } else if (error.code === "auth/user-not-found") {
 
-alert(error.message);
+            alert("Account not found.");
 
-}
+        } else if (error.code === "auth/wrong-password") {
+
+            alert("Incorrect password.");
+
+        } else {
+
+            alert(error.message);
+
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = "Login";
+
+    }
 
 });
 
-</script>
+            </script>
 
 <script src="script.js"></script>
 
