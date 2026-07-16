@@ -164,3 +164,4 @@ setInterval(generateActivity,4000);
 searchBox.addEventListener("input",renderActivities);
 
 filter.addEventListener("change",renderActivities);
+  });
