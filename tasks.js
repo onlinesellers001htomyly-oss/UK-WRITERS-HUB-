@@ -55,19 +55,45 @@ snapshot.forEach(task=>{
 
 const data=task.data();
 
-container.innerHTML+=`
+tasksContainer.innerHTML += `
 
-<div class="task">
+<div class="task-card">
 
-<h2>${data.title}</h2>
+<div class="task-title">
 
-<p>${data.description}</p>
+${task.title}
 
-<p class="price">$${data.budget}</p>
+</div>
 
-<button onclick="placeBid('${task.id}')">
+<div>
 
-Place Bid
+<span class="task-budget">
+
+$${task.budget}
+
+</span>
+
+<span class="task-category">
+
+${task.category || "Academic Writing"}
+
+</span>
+
+</div>
+
+<p>
+
+${task.description}
+
+</p>
+
+<button
+
+class="bid-btn"
+
+onclick="openBidModal('${doc.id}')">
+
+Bid Now
 
 </button>
 
