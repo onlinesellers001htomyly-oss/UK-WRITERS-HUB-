@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Live Activity | UK WRITERS HUB</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+background:#f4f7fb;
+font-family:Arial,sans-serif;
+}
+
+.activity-header{
+background:linear-gradient(135deg,#0d47a1,#1565C0,#26a69a);
+padding:25px;
+color:white;
+text-align:center;
+}
+
+.live-dot{
+display:inline-block;
+width:12px;
+height:12px;
+background:#00ff00;
+border-radius:50%;
+animation:blink .8s infinite;
+margin-right:8px;
+}
+
+@keyframes blink{
+
+50%{
+opacity:.2;
+}
+
+}
+
+.activity-controls{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.activity-controls input,
+.activity-controls select{
+
+flex:1;
+padding:14px;
+border:none;
+border-radius:8px;
+font-size:16px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+}
+
+#activityContainer{
+
+padding:20px;
+
+}
+
+.activity-card{
+
+background:white;
+
+border-left:6px solid #1565C0;
+
+padding:18px;
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+box-shadow:0 5px 12px rgba(0,0,0,.08);
+
+animation:fadeIn .5s;
+
+}
+
+.activity-time{
+
+font-size:13px;
+
+color:gray;
+
+margin-top:8px;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="activity-header">
+
+<h1>
+
+<span class="live-dot"></span>
+
+LIVE ACTIVITY FEED
+
+</h1>
+
+<p>Real-time activities from UK WRITERS HUB</p>
+
+</header>
+
+<div class="activity-controls">
+
+<input
+type="text"
+id="searchActivity"
+placeholder="Search activity...">
+
+<select id="activityFilter">
+
+<option value="All">All Activities</option>
+
+<option value="Earned">Earnings</option>
+
+<option value="Withdraw">Withdrawals</option>
+
+<option value="Referral">Referrals</option>
+
+<option value="Joined">New Members</option>
+
+<option value="Project">Projects</option>
+
+</select>
+
+</div>
+
+<div id="activityContainer">
+
+Loading activities...
+
+</div>
+
+<script src="activity.js"></script>
+
+</body>
+</html>
