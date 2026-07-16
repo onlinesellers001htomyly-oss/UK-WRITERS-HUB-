@@ -127,21 +127,21 @@ return;
 
 }
 
-container.innerHTML+=`
+const card = document.createElement("div");
 
-<div class="activity-card">
+card.className = "activity-card";
 
-${item.text}
+const message = document.createElement("div");
+message.innerHTML = item.text;
 
-<div class="activity-time">
+const time = document.createElement("div");
+time.className = "activity-time";
+time.textContent = item.time;
 
-${item.time}
+card.appendChild(message);
+card.appendChild(time);
 
-</div>
-
-</div>
-
-`;
+container.appendChild(card);
 
 });
 
