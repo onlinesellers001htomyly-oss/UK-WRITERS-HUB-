@@ -83,36 +83,34 @@ font-size:18px;
 </p>
 
 <div class="container">
+<div class="task-top-bar">
 
-<div id="tasksContainer">
+<input
+type="text"
+id="searchTask"
+placeholder="🔍 Search writing jobs...">
 
-<p>Loading available tasks...</p>
+<select id="categoryFilter">
 
-</div>
+<option value="">All Categories</option>
 
-</div>
+<option>Academic Writing</option>
 
-<h2>Academic Essay</h2>
+<option>Article Writing</option>
 
-<p>1,500-word business management assignment.</p>
+<option>Essay Writing</option>
 
-<p class="price">$40</p>
+<option>Research Writing</option>
 
-<button>Place Bid</button>
+<option>Technical Writing</option>
 
-</div>
+<option>Business Writing</option>
 
-<div class="task">
-
-<h2>Blog Writing</h2>
-
-<p>Five SEO blog posts.</p>
-
-<p class="price">$60</p>
-
-<button>Place Bid</button>
+</select>
 
 </div>
+
+<div id="tasksContainer" class="task-grid">
 
 </div>
 <script type="module" src="tasks.js"></script>
