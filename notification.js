@@ -1,82 +1,98 @@
-const express = require("express");
-const router = express.Router();
-const db = require("./database");
+import { auth, db } from "./firebase.js";
 
-// Get notifications for a user
-router.get("/:userId", (req, res) => {
+import {
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 
-    const userId = Number(req.params.userId);
+import {
+collection,
+query,
+where,
+orderBy,
+onSnapshot,
+updateDoc,
+doc
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-    const notifications = db.notifications.filter(
-        n => n.userId === userId
-    );
+const bell = document.getElementById("notificationBell");
+const panel = document.getElementById("notificationPanel");
+const list = document.getElementById("notificationList");
+const count = document.getElementById("notificationCount");
 
-    res.json(notifications);
+let opened = false;
 
-});
+if (bell) {
 
-// Create a notification
-router.post("/", (req, res) => {
+bell.addEventListener("click", () => {
 
-    const notification = {
+opened = !opened;
 
-        id: db.notifications.length + 1,
-
-        userId: req.body.userId,
-
-        title: req.body.title,
-
-        message: req.body.message,
-
-        read: false,
-
-        date: new Date()
-
-    };
-
-    db.notifications.push(notification);
-
-    res.json({
-
-        success: true,
-
-        message: "Notification created successfully.",
-
-        notification
-
-    });
+panel.style.display = opened ? "block" : "none";
 
 });
 
-// Mark notification as read
-router.put("/:id/read", (req, res) => {
+}
 
-    const notification = db.notifications.find(
-        n => n.id == req.params.id
-    );
+onAuthStateChanged(auth, (user) => {
 
-    if (!notification) {
+if (!user) return;
 
-        return res.status(404).json({
+const q = query(
+collection(db, "notifications"),
+where("userId", "==", user.uid),
+orderBy("createdAt", "desc")
+);
 
-            success: false,
+onSnapshot(q, async(snapshot) => {
 
-            message: "Notification not found."
+list.innerHTML = "";
 
-        });
+let unread = 0;
 
-    }
+if (snapshot.empty) {
 
-    notification.read = true;
+list.innerHTML = "<p>No notifications available.</p>";
 
-    res.json({
+count.textContent = "0";
 
-        success: true,
+return;
 
-        message: "Notification marked as read."
+}
 
-    });
+snapshot.forEach(async(docSnap) => {
+
+const data = docSnap.data();
+
+if (!data.read) unread++;
+
+list.innerHTML += `
+
+<div class="notification-item">
+
+<strong>${data.title}</strong>
+
+<p>${data.message}</p>
+
+<small>${data.time || ""}</small>
+
+</div>
+
+`;
+
+if (opened && !data.read) {
+
+await updateDoc(doc(db, "notifications", docSnap.id), {
+
+read: true
 
 });
 
-module.exports = router;
+}
+
+});
+
+count.textContent = unread;
+
+});
+
+});
