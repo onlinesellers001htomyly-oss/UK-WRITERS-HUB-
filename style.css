@@ -1464,3 +1464,32 @@ color:green;
 font-size:20px;
 
   }
+.review-box{
+
+background:white;
+
+padding:20px;
+
+margin:15px 0;
+
+border-radius:15px;
+
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+}
+
+
+.review-box h3{
+
+color:#f9a825;
+
+}
+
+
+#reviewSummary{
+
+text-align:center;
+
+font-size:20px;
+
+}
