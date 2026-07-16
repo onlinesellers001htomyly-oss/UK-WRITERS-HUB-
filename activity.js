@@ -26,9 +26,15 @@ const projects = [
 "Dissertation"
 ];
 
-const container = document.getElementById("activityContainer");
-const searchBox = document.getElementById("searchActivity");
-const filter = document.getElementById("activityFilter");
+window.addEventListener("DOMContentLoaded",()=>{
+
+const container=document.getElementById("activityContainer");
+const searchBox=document.getElementById("searchActivity");
+const filter=document.getElementById("activityFilter");
+
+if(!container || !searchBox || !filter){
+return;
+}
 
 let activities = [];
 
