@@ -314,7 +314,19 @@ status:"Approved"
 
 );
 
+await addDoc(collection(db,"notifications"),{
 
+userId: userId,
+
+title: "Membership Activated",
+
+message: "Congratulations! Your UK WRITERS HUB membership has been activated.",
+
+read: false,
+
+createdAt: new Date()
+
+});
 
 // Referral bonus
 
