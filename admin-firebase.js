@@ -219,7 +219,7 @@ table.innerHTML += `
 
 <tr>
 
-<td>${payment.fullname || "-"}</td>
+<td>${user.fullname || user.fullName || "-"}</td>
 
 <td>${payment.email || "-"}</td>
 
