@@ -67,7 +67,24 @@ onAuthStateChanged(auth, async(user)=>{
 
 });
 
+<div class="admin-search">
 
+<input
+type="text"
+id="adminSearch"
+placeholder="🔍 Search by name, email or phone">
+
+<select id="adminFilter">
+
+<option value="All">All Members</option>
+
+<option value="Active">Active</option>
+
+<option value="Pending">Pending</option>
+
+</select>
+
+</div>
 
 // ==============================
 // LOAD USERS
