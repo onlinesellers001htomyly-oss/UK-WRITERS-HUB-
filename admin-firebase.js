@@ -107,6 +107,9 @@ let active=0;
 
 
 snapshot.forEach((userDoc)=>{
+    if(withdraw.status === "Pending"){
+    pendingWithdrawals++;
+    }
 if(payment.status === "Pending"){
     pendingPayments++;
 }
