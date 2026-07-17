@@ -224,20 +224,38 @@ await setDoc(doc(db,"users",user.uid),{
 
 fullname: fullname,
 
-email,
+email: email,
 
-phone,
-
+phone: phone,
 
 role: "member",
+
 membership: "Pending",
 
 balance: 0,
-referralEarnings: 0,
+
+pendingBalance: 0,
+
 taskEarnings: 0,
+
+referralEarnings: 0,
+
+lifetimeEarnings: 0,
+
+completedTasks: 0,
+
 totalReferrals: 0,
+
 referralCode,
+
 referredBy,
+
+country: "Kenya",
+
+whatsapp: phone,
+
+status: "Active",
+
 createdAt: serverTimestamp()
 
 });
