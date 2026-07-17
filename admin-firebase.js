@@ -275,7 +275,11 @@ Approve
 
 }
 
+document.getElementById("adminPendingPayments").textContent =
+pendingPayments;
 
+document.getElementById("adminRevenue").textContent =
+"$" + revenue.toFixed(2);
 
 
 // ==============================
