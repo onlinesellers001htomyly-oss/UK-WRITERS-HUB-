@@ -285,7 +285,8 @@ pendingPayments;
 document.getElementById("adminRevenue").textContent =
 "$" + revenue.toFixed(2);
 
-
+document.getElementById("adminPendingWithdrawals").textContent =
+pendingWithdrawals;
 // ==============================
 // APPROVE MEMBERSHIP PAYMENT
 // ==============================
