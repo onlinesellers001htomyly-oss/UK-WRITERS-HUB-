@@ -1558,3 +1558,40 @@ font-size:18px;
 font-size:32px;
 margin:0;
 }
+.admin-search{
+
+display:flex;
+
+gap:15px;
+
+margin:20px 0;
+
+flex-wrap:wrap;
+
+}
+
+.admin-search input{
+
+flex:1;
+
+padding:12px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+.admin-search select{
+
+padding:12px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+font-size:16px;
+
+  }
