@@ -106,7 +106,13 @@ let active=0;
 
 
 snapshot.forEach((userDoc)=>{
+if(payment.status === "Pending"){
+    pendingPayments++;
+}
 
+if(payment.status === "Approved"){
+    revenue += Number(payment.amount || 0);
+        }
 
 const user=userDoc.data();
 
