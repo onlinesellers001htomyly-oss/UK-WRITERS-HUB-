@@ -72,7 +72,8 @@ onAuthStateChanged(auth, async(user)=>{
 // ==============================
 // LOAD USERS
 // ==============================
-
+let pendingPayments = 0;
+let revenue = 0;
 async function loadTasks(){
 
 const snapshot =
