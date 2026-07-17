@@ -73,7 +73,15 @@ onAuthStateChanged(auth, async(user)=>{
 // LOAD USERS
 // ==============================
 
+async function loadTasks(){
 
+const snapshot =
+await getDocs(collection(db,"tasks"));
+
+document.getElementById("adminTotalTasks").textContent =
+snapshot.size;
+
+}
 async function loadUsers(){
 
 
