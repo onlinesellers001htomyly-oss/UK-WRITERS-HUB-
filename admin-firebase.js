@@ -147,6 +147,17 @@ active++;
 
 table.innerHTML += `
 
+function renderUsers(users){
+
+const table =
+document.getElementById("adminUsersTable");
+
+table.innerHTML="";
+
+users.forEach(user=>{
+
+table.innerHTML += `
+
 <tr>
 
 <td>${user.fullname || "-"}</td>
@@ -155,27 +166,13 @@ table.innerHTML += `
 
 <td>${user.phone || "-"}</td>
 
-<td>${user.referralCode || "-"}</td>
+<td>${user.membership}</td>
 
-<td>${user.referredBy || "None"}</td>
-
-<td>
-$${Number(user.balance || 0).toFixed(2)}
-</td>
-
-<td>
-$${Number(user.referralEarnings || 0).toFixed(2)}
-</td>
-
-
-<td>
-${user.membership || "Pending"}
-</td>
-
+<td>$${Number(user.balance || 0).toFixed(2)}</td>
 
 <td>
 
-<button onclick="approveUser('${userDoc.id}')">
+<button onclick="approveUser('${user.id}')">
 
 Activate
 
@@ -183,12 +180,13 @@ Activate
 
 </td>
 
-
 </tr>
 
 `;
 
 });
+
+}
 
 
 
