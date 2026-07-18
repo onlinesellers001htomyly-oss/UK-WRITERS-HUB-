@@ -729,3 +729,59 @@ window.createTask = async function(){
     }
 
 };
+const search =
+document.getElementById("adminSearch");
+
+const filter =
+document.getElementById("adminFilter");
+
+if(search){
+
+search.addEventListener("input",filterUsers);
+
+}
+
+if(filter){
+
+filter.addEventListener("change",filterUsers);
+
+}
+
+function filterUsers(){
+
+const keyword =
+search.value.toLowerCase();
+
+const status =
+filter.value;
+
+const filtered =
+allUsers.filter(user=>{
+
+const matchText=
+
+(user.fullname || "").toLowerCase().includes(keyword)
+
+||
+
+(user.email || "").toLowerCase().includes(keyword)
+
+||
+
+(user.phone || "").toLowerCase().includes(keyword);
+
+const matchStatus=
+
+status==="All"
+
+||
+
+user.membership===status;
+
+return matchText && matchStatus;
+
+});
+
+renderUsers(filtered);
+
+}
