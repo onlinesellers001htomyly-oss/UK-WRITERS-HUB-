@@ -1,3 +1,4 @@
+let allUsers = [];
 import { auth, db } from "./firebase.js";
 
 import {
