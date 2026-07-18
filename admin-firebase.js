@@ -199,6 +199,7 @@ active;
 
 
 }
+renderUsers(allUsers);
 // ==============================
 // LOAD PAYMENT REQUESTS
 // ==============================
