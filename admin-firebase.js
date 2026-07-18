@@ -785,3 +785,48 @@ return matchText && matchStatus;
 renderUsers(filtered);
 
 }
+window.publishAnnouncement = async function(){
+
+const title =
+document.getElementById("announcementTitle").value.trim();
+
+const message =
+document.getElementById("announcementMessage").value.trim();
+
+if(title==="" || message===""){
+
+alert("Please complete all fields.");
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"announcements"),{
+
+title,
+
+message,
+
+status:"Active",
+
+createdAt:new Date()
+
+});
+
+alert("Announcement published successfully.");
+
+document.getElementById("announcementTitle").value="";
+
+document.getElementById("announcementMessage").value="";
+
+}catch(error){
+
+console.error(error);
+
+alert(error.message);
+
+}
+
+};
