@@ -101,7 +101,19 @@ table.innerHTML="";
 const snapshot =
 await getDocs(collection(db,"users"));
 
+allUsers = [];
 
+snapshot.forEach((docSnap)=>{
+
+allUsers.push({
+
+id: docSnap.id,
+
+...docSnap.data()
+
+});
+
+});
 let total=0;
 let active=0;
 
