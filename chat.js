@@ -56,9 +56,13 @@ const m=doc.data();
 
 box.innerHTML+=`
 
-<div class="${m.sender}">
+<div class="${m.sender==="Member" ? "member-message" : "admin-message"}">
 
-<strong>${m.sender}</strong>
+<strong>
+
+${m.sender==="Member" ? "You" : "Administrator"}
+
+</strong>
 
 <p>${m.message}</p>
 
