@@ -1614,3 +1614,22 @@ font-size:15px;
 resize:vertical;
 
   }
+.chat-card{
+
+background:white;
+
+padding:20px;
+
+margin-bottom:20px;
+
+border-radius:12px;
+
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+
+}
+
+.chat-card button{
+
+margin-top:10px;
+
+  }
