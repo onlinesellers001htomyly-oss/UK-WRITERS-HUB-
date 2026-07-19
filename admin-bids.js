@@ -1,127 +1,49 @@
 import { db } from "./firebase.js";
 
 import {
-    collection,
-    getDocs,
-    doc,
-    getDoc,
-    updateDoc,
-    query,
-    where
+
+collection,
+
+getDocs
+
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
-const table = document.getElementById("bidsTable");
+const container=document.getElementById("bidsContainer");
 
-async function loadBids() {
+async function loadBids(){
 
-    table.innerHTML = "";
+const snapshot=await getDocs(collection(db,"bids"));
 
-    const bidsSnapshot = await getDocs(collection(db, "bids"));
+container.innerHTML="";
 
-    if (bidsSnapshot.empty) {
+snapshot.forEach(doc=>{
 
-        table.innerHTML =
-        "<tr><td colspan='7'>No bids submitted.</td></tr>";
+const bid=doc.data();
 
-        return;
+container.innerHTML+=`
 
-    }
+<div class="project-card">
 
-    bidsSnapshot.forEach(async (bidDoc) => {
+<h2>${bid.projectTitle}</h2>
 
-        const bid = bidDoc.data();
+<p><strong>Bid:</strong> $${bid.bidAmount}</p>
 
-        let taskTitle = "Unknown Task";
+<p><strong>Delivery:</strong> ${bid.deliveryDays} days</p>
 
-        const taskSnap = await getDoc(doc(db, "tasks", bid.taskId));
+<p><strong>Status:</strong> ${bid.status}</p>
 
-        if (taskSnap.exists()) {
+<button onclick="approveBid('${doc.id}')">
 
-            taskTitle = taskSnap.data().title;
+Approve Writer
 
-        }
+</button>
 
-        table.innerHTML += `
+</div>
 
-        <tr>
+`;
 
-            <td>${taskTitle}</td>
-
-            <td>${bid.fullname}</td>
-
-            <td>$${bid.bidAmount}</td>
-
-            <td>${bid.completionDays}</td>
-
-            <td>${bid.proposal}</td>
-
-            <td>${bid.status}</td>
-
-            <td>
-
-                <button
-                onclick="acceptBid('${bidDoc.id}','${bid.taskId}','${bid.userId}')">
-
-                Accept
-
-                </button>
-
-            </td>
-
-        </tr>
-
-        `;
-
-    });
+});
 
 }
 
 loadBids();
-
-window.acceptBid = async function(bidId, taskId, userId) {
-
-    if (!confirm("Accept this bid?")) return;
-
-    // Accept the selected bid
-    await updateDoc(doc(db, "bids", bidId), {
-
-        status: "Accepted"
-
-    });
-
-    // Assign the task
-    await updateDoc(doc(db, "tasks", taskId), {
-
-        status: "Assigned",
-
-        assignedTo: userId
-
-    });
-
-    // Reject every other bid for this task
-    const otherBids = query(
-        collection(db, "bids"),
-        where("taskId", "==", taskId)
-    );
-
-    const snapshot = await getDocs(otherBids);
-
-    snapshot.forEach(async (item) => {
-
-        if (item.id !== bidId) {
-
-            await updateDoc(doc(db, "bids", item.id), {
-
-                status: "Rejected"
-
-            });
-
-        }
-
-    });
-
-    alert("✅ Bid accepted successfully.");
-
-    location.reload();
-
-};
