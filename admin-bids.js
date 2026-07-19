@@ -1,11 +1,15 @@
 import { db } from "./firebase.js";
 
 import {
-
 collection,
-
-getDocs
-
+getDocs,
+doc,
+updateDoc,
+getDoc,
+addDoc,
+serverTimestamp,
+query,
+where
 } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const container=document.getElementById("bidsContainer");
