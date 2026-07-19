@@ -74,21 +74,25 @@ box.scrollTop=box.scrollHeight;
 
 }
 
-window.sendMessage=async function(){
+window.sendMessage = async function(){
 
-const text=document.getElementById("chatMessage").value.trim();
+const text = document.getElementById("chatMessage").value.trim();
 
 if(text==="") return;
 
 await addDoc(collection(db,"chats"),{
 
-userId:currentUser.uid,
+userId: currentUser.uid,
 
-sender:"Member",
+sender: "Member",
 
-message:text,
+receiver: "Admin",
 
-createdAt:serverTimestamp()
+message: text,
+
+read: false,
+
+createdAt: serverTimestamp()
 
 });
 
