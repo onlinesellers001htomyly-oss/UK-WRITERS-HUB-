@@ -1676,3 +1676,22 @@ margin-right:60px;
 border-left:5px solid #1565C0;
 
   }
+.project-card{
+
+background:white;
+
+padding:20px;
+
+margin:20px 0;
+
+border-radius:12px;
+
+box-shadow:0 2px 12px rgba(0,0,0,.15);
+
+}
+
+.project-card h2{
+
+color:#1565C0;
+
+  }
