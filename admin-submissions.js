@@ -77,65 +77,65 @@ Reject
 loadSubmissions();
 window.approveSubmission = async function(id,userId,title){
 
-await updateDoc(doc(db,"submissions",id),{
+try{
 
-status:"Approved"
+const submissionRef = doc(db,"submissions",id);
 
-});
+const submissionSnap = await getDoc(submissionRef);
 
-await addDoc(collection(db,"notifications"),{
+if(!submissionSnap.exists()){
 
-userId,
+alert("Submission not found.");
 
-title:"Project Approved",
-
-message:`✅ Your work for "${title}" has been approved.`,
-
-read:false,
-
-createdAt:serverTimestamp()
-
-});
-
-alert("Submission approved.");
-
-location.reload();
+return;
 
 }
 
-window.requestRevision = async function(id,userId,title){
+const submission = submissionSnap.data();
 
-await updateDoc(doc(db,"submissions",id),{
+const userRef = doc(db,"users",userId);
 
-status:"Revision Required"
+const userSnap = await getDoc(userRef);
 
-});
+if(!userSnap.exists()){
 
-await addDoc(collection(db,"notifications"),{
+alert("User not found.");
 
-userId,
-
-title:"Revision Requested",
-
-message:`✏️ Please revise your work for "${title}" and upload it again.`,
-
-read:false,
-
-createdAt:serverTimestamp()
-
-});
-
-alert("Revision requested.");
-
-location.reload();
+return;
 
 }
 
-window.rejectSubmission = async function(id,userId,title){
+const user = userSnap.data();
 
-await updateDoc(doc(db,"submissions",id),{
+const payment = Number(submission.payment || 0);
 
-status:"Rejected"
+await updateDoc(userRef,{
+
+balance:Number(user.balance || 0)+payment,
+
+taskEarnings:Number(user.taskEarnings || 0)+payment
+
+});
+
+await updateDoc(submissionRef,{
+
+status:"Approved",
+
+paymentReleased:true
+
+});
+
+await addDoc(collection(db,"paymentsHistory"),{
+
+userId,
+
+projectTitle:title,
+
+amount:payment,
+
+status:"Paid",
+
+createdAt:serverTimestamp()
 
 });
 
@@ -143,9 +143,9 @@ await addDoc(collection(db,"notifications"),{
 
 userId,
 
-title:"Project Rejected",
+title:"Payment Released",
 
-message:`❌ Your submission for "${title}" was rejected.`,
+message:`💰 Your payment of $${payment} for "${title}" has been released successfully.`,
 
 read:false,
 
@@ -153,8 +153,16 @@ createdAt:serverTimestamp()
 
 });
 
-alert("Submission rejected.");
+alert("Project approved and payment released.");
 
 location.reload();
+
+}catch(error){
+
+console.error(error);
+
+alert(error.message);
+
+}
 
 }
