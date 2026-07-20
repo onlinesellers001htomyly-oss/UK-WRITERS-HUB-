@@ -1,3 +1,10 @@
+import { getStorage } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js";
+
+
+const storage = getStorage(app);
+
+
+export { auth, db, storage };
 // Import Firebase SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 
