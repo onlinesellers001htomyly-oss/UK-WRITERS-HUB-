@@ -53,12 +53,6 @@ Approve Writer
 loadBids();
 window.approveBid = async function(bidId){
 
-if(!confirm("Assign this project to this writer?")){
-
-return;
-
-}
-
 try{
 
 const bidRef = doc(db,"bids",bidId);
@@ -75,25 +69,27 @@ return;
 
 const bid = bidSnap.data();
 
+// Approve selected bid
+
 await updateDoc(bidRef,{
 
 status:"Approved"
 
 });
 
-const otherBids = await getDocs(
+// Reject all other bids for this project
 
-query(
+const otherBids = query(
 
 collection(db,"bids"),
 
 where("projectId","==",bid.projectId)
 
-)
-
 );
 
-otherBids.forEach(async(d)=>{
+const snapshot = await getDocs(otherBids);
+
+snapshot.forEach(async(d)=>{
 
 if(d.id!==bidId){
 
@@ -107,31 +103,25 @@ status:"Rejected"
 
 });
 
-await updateDoc(
+// Update project
 
-doc(db,"projects",bid.projectId),
-
-{
+await updateDoc(doc(db,"projects",bid.projectId),{
 
 status:"Assigned",
 
-assignedTo:bid.userId,
+assignedTo:bid.userId
 
-assignedBudget:bid.bidAmount,
+});
 
-assignedDate:serverTimestamp()
-
-}
-
-);
+// Create notification
 
 await addDoc(collection(db,"notifications"),{
 
 userId:bid.userId,
 
-title:"🎉 Project Awarded",
+title:"Project Awarded",
 
-message:`Congratulations! Your bid for "${bid.projectTitle}" has been accepted. Please begin working on the project.`,
+message:`🎉 Congratulations! Your bid for "${bid.projectTitle}" has been accepted. Please begin working on the project.`,
 
 read:false,
 
@@ -139,7 +129,7 @@ createdAt:serverTimestamp()
 
 });
 
-alert("Project assigned successfully.");
+alert("Writer approved successfully.");
 
 location.reload();
 
