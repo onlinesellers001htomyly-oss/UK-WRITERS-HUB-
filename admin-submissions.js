@@ -1,9 +1,8 @@
-import { db } from "./firebase.js";
-
 import {
 collection,
 getDocs,
 doc,
+getDoc,
 updateDoc,
 addDoc,
 serverTimestamp
