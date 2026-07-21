@@ -117,3 +117,12 @@ createdAt: serverTimestamp()
 document.getElementById("chatMessage").value="";
 
 }
+window.addEventListener("beforeunload",async()=>{
+
+if(currentUser){
+
+await deleteDoc(doc(db,"onlineUsers",currentUser.uid));
+
+}
+
+});
