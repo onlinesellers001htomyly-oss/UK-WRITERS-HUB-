@@ -1,3 +1,8 @@
+import {
+doc,
+setDoc,
+deleteDoc
+} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { auth, db } from "./firebase.js";
 
 import {
@@ -27,6 +32,15 @@ return;
 }
 
 currentUser=user;
+  await setDoc(doc(db,"onlineUsers",user.uid),{
+
+email:user.email,
+
+lastSeen:serverTimestamp(),
+
+status:"Online"
+
+});
 
 loadMessages();
 
