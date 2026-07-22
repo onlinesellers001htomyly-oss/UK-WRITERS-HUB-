@@ -45,7 +45,7 @@ return;
 
 }
 
-const snapshot=await getDocs(collection(db,"tasks"));
+const snapshot = await getDocs(collection(db,"projects"));
 
 const container=document.getElementById("tasksContainer");
 
