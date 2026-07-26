@@ -99,6 +99,13 @@ if(!table) return;
 
 table.innerHTML="";
 
+const keyword =
+(document.getElementById("searchUser")?.value || "")
+.toLowerCase();
+
+const filter =
+document.getElementById("membershipFilter")?.value || "All";
+
 
 const snapshot =
 await getDocs(collection(db,"users"));
