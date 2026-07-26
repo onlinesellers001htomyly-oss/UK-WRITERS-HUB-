@@ -58,11 +58,13 @@ type="tel"
 id="phone"
 placeholder="Phone Number (2547XXXXXXXX)"
 required>
+ 
  <select id="accountType" required>
     <option value="">Select Account Type</option>
     <option value="member">Writer</option>
     <option value="client">Client</option>
   </select>
+ 
 <input
 type="password"
 id="password"
@@ -190,7 +192,10 @@ const fullname=document.getElementById("fullName").value.trim();
 const email=document.getElementById("email").value.trim().toLowerCase();
 
 const phone=document.getElementById("phone").value.trim();
-
+ 
+const accountType =
+document.getElementById("accountType").value;
+ 
 const password=document.getElementById("password").value;
 
 const confirmPassword=document.getElementById("confirmPassword").value;
