@@ -150,15 +150,21 @@ form.addEventListener("submit", async (e) => {
 
         const data = snap.data();
 
-        if (data.role === "admin") {
+        if(data.role==="admin"){
 
-            window.location = "admin.html";
+window.location="admin.html";
 
-        } else {
+}
+else if(data.role==="client"){
 
-            window.location = "dashboard.html";
+window.location="client-dashboard.html";
 
-        }
+}
+else{
+
+window.location="dashboard.html";
+
+}
 
     } catch (error) {
 
