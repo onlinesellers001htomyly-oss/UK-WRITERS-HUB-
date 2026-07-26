@@ -141,6 +141,15 @@ if(payment.status === "Approved"){
         }
 
 const user=userDoc.data();
+    document.getElementById("searchUser")?.addEventListener(
+"input",
+loadUsers
+);
+
+document.getElementById("membershipFilter")?.addEventListener(
+"change",
+loadUsers
+);
 
 
 total++;
