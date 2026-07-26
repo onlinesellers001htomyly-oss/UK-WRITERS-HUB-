@@ -53,3 +53,38 @@ container.innerHTML += `
 });
 
                         }
+window.sendAnnouncement = async function(){
+
+const title =
+document.getElementById("announcementTitle").value.trim();
+
+const message =
+document.getElementById("announcementMessage").value.trim();
+
+if(title==="" || message===""){
+
+alert("Please complete all fields.");
+
+return;
+
+}
+
+await addDoc(collection(db,"announcements"),{
+
+title,
+
+message,
+
+status:"Active",
+
+createdAt:serverTimestamp()
+
+});
+
+alert("Announcement published successfully.");
+
+document.getElementById("announcementTitle").value="";
+
+document.getElementById("announcementMessage").value="";
+
+}
