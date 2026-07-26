@@ -831,3 +831,33 @@ alert(error.message);
 }
 
 };
+async function loadDashboardStatistics(){
+
+const users = await getDocs(collection(db,"users"));
+const projects = await getDocs(collection(db,"projects"));
+const bids = await getDocs(collection(db,"bids"));
+const withdrawals = await getDocs(collection(db,"withdrawals"));
+const payments = await getDocs(collection(db,"payments"));
+
+document.getElementById("adminTotalProjects").textContent = projects.size;
+document.getElementById("adminTotalBids").textContent = bids.size;
+document.getElementById("adminTotalWithdrawals").textContent = withdrawals.size;
+
+let revenue = 0;
+
+payments.forEach(doc=>{
+
+const payment = doc.data();
+
+if(payment.status==="Approved"){
+
+revenue += Number(payment.amount || 0);
+
+}
+
+});
+
+document.getElementById("adminRevenue").textContent =
+"$" + revenue.toFixed(2);
+
+}
