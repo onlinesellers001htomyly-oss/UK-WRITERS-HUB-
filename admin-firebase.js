@@ -65,6 +65,7 @@ onAuthStateChanged(auth, async(user)=>{
     loadPayments();
 
     loadWithdrawals();
+    loadDashboardStatistics();
 
 });
 
