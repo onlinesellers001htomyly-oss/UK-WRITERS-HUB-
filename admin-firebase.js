@@ -66,6 +66,7 @@ onAuthStateChanged(auth, async(user)=>{
 
     loadWithdrawals();
     loadDashboardStatistics();
+    loadRecentActivity();
 
 });
 
@@ -861,3 +862,75 @@ document.getElementById("adminRevenue").textContent =
 "$" + revenue.toFixed(2);
 
 }
+async function loadRecentActivity(){
+
+const container =
+document.getElementById("recentActivity");
+
+if(!container) return;
+
+container.innerHTML = "";
+
+const users =
+await getDocs(collection(db,"users"));
+
+const projects =
+await getDocs(collection(db,"projects"));
+
+const withdrawals =
+await getDocs(collection(db,"withdrawals"));
+
+users.forEach(doc=>{
+
+const user = doc.data();
+
+container.innerHTML += `
+
+<p>
+
+👤 New Member:
+<strong>${user.fullname}</strong>
+
+</p>
+
+`;
+
+});
+
+projects.forEach(doc=>{
+
+const project = doc.data();
+
+container.innerHTML += `
+
+<p>
+
+📋 New Project:
+
+<strong>${project.title}</strong>
+
+</p>
+
+`;
+
+});
+
+withdrawals.forEach(doc=>{
+
+const withdraw = doc.data();
+
+container.innerHTML += `
+
+<p>
+
+💰 Withdrawal Request:
+
+<strong>$${withdraw.amount}</strong>
+
+</p>
+
+`;
+
+});
+
+    }
