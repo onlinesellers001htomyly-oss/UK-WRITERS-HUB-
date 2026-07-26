@@ -141,15 +141,29 @@ if(payment.status === "Approved"){
         }
 
 const user=userDoc.data();
-    document.getElementById("searchUser")?.addEventListener(
-"input",
-loadUsers
-);
+    const fullname =
+(user.fullname || "").toLowerCase();
 
-document.getElementById("membershipFilter")?.addEventListener(
-"change",
-loadUsers
-);
+const email =
+(user.email || "").toLowerCase();
+
+const phone =
+(user.phone || "").toLowerCase();
+
+if(
+!fullname.includes(keyword) &&
+!email.includes(keyword) &&
+!phone.includes(keyword)
+){
+return;
+}
+
+if(
+filter !== "All" &&
+user.membership !== filter
+){
+return;
+}
 
 
 total++;
@@ -950,3 +964,12 @@ container.innerHTML += `
 });
 
     }
+document.getElementById("searchUser")?.addEventListener(
+"input",
+loadUsers
+);
+
+document.getElementById("membershipFilter")?.addEventListener(
+"change",
+loadUsers
+);
