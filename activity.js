@@ -114,13 +114,7 @@ break;
 
 }
 
-activities.unshift({
-
-text,
-
-category,
-
-const times=[
+const times = [
 "Just now",
 "1 minute ago",
 "2 minutes ago",
@@ -135,8 +129,10 @@ const times=[
 "2 hours ago"
 ];
 
-time:randomItem(times)
-
+activities.unshift({
+    text,
+    category,
+    time: randomItem(times)
 });
 
 if(activities.length>100){
