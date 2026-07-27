@@ -120,7 +120,7 @@ text,
 
 category,
 
-time:"const times=[
+const times=[
 "Just now",
 "1 minute ago",
 "2 minutes ago",
@@ -135,7 +135,7 @@ time:"const times=[
 "2 hours ago"
 ];
 
-time:randomItem(times)"
+time:randomItem(times)
 
 });
 
