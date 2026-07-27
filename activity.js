@@ -133,11 +133,7 @@ const times = [
 "2 hours ago"
 ];
 
-activities.unshift({
-    text,
-    category,
-    time: randomItem(times)
-});
+
 
 if(activities.length>100){
 
