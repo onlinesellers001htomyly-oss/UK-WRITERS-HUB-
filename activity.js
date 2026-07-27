@@ -115,7 +115,22 @@ text,
 
 category,
 
-time:"Just now"
+time:"const times=[
+"Just now",
+"1 minute ago",
+"2 minutes ago",
+"4 minutes ago",
+"7 minutes ago",
+"12 minutes ago",
+"18 minutes ago",
+"25 minutes ago",
+"32 minutes ago",
+"45 minutes ago",
+"1 hour ago",
+"2 hours ago"
+];
+
+time:randomItem(times)"
 
 });
 
