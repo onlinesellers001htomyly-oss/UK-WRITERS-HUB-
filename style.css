@@ -1299,7 +1299,25 @@ border-left:6px solid #2e7d32;
 border-radius:10px;
 animation:fadeIn .5s ease;
 }
+.activity-card{
 
+background:white;
+
+color:#222;
+
+}
+
+.activity-card h3{
+
+color:#1565C0;
+
+}
+
+.activity-card p{
+
+color:#333;
+
+}
 .activity-time{
 margin-top:8px;
 font-size:12px;
