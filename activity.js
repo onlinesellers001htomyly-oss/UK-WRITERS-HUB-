@@ -1,12 +1,11 @@
-const maleNames = [
+const maleNames=[
 "James","John","Michael","David","Daniel","Joseph","Samuel","Peter","Paul","Mark",
 "Kevin","Brian","Charles","George","Anthony","Andrew","Collins","Dennis","Victor","Wilson",
 "Robert","Richard","Thomas","Edward","Patrick","Martin","Stephen","Simon","Philip","Eric",
-"Benjamin","Noah","Elijah","Jacob","William","Henry","Luke","Isaac","Nathan","Ryan"
-"james","John","Michael","David","Daniel","Joseph","Samuel","Peter","Paul","Mark",
-"Grace","Mary","Faith","Mercy","Sarah","Sophia","Olivia","Emma","Linda","Joy",
-"Kevin","Brian","Charles","George","Anthony","Andrew","Collins","Dennis","Victor","Wilson",
-"Emily","Alice","Cynthia","Janet"];
+"Benjamin","Noah","Elijah","Jacob","William","Henry","Luke","Isaac","Nathan","Ryan",
+"Chris","Oscar","Albert","Francis","Leonard","Timothy","Joel","Caleb","Fred","Alex",
+"Jonathan","Bruce","Aaron","Kelvin","Moses","Nicholas","Donald","Steve","Vincent","Jeff"
+];
 
 const femaleNames = [
 "Grace","Mary","Faith","Mercy","Sarah","Sophia","Olivia","Emma","Linda","Joy",
