@@ -16,12 +16,14 @@ const femaleNames=[
 "Rebecca","Doreen","Stella","Sheila","Joyce","Flora","Phoebe","Peris","Catherine","Edna"
 ];
 
-const surnames = [
+const surnames=[
 "Smith","Johnson","Brown","Williams","Jones","Miller","Davis","Wilson","Taylor","Clark",
 "Walker","Young","Allen","King","Scott","Green","Baker","Nelson","Carter","Mitchell",
 "Kamau","Otieno","Mwangi","Kiptoo","Mutua","Muli","Wanjiku","Achieng","Kariuki","Maina",
 "Njoroge","Omondi","Okello","Kato","Tumusiime","Abebe","Tesfaye","Mensah","Adeyemi","Okafor",
-"Patel","Sharma","Singh","Khan","Ali","Kim","Lee","Garcia","Martinez","Silva"
+"Patel","Sharma","Singh","Khan","Ali","Kim","Lee","Garcia","Martinez","Silva",
+"White","Hall","Turner","Hill","Phillips","Campbell","Parker","Evans","Edwards","Cooper",
+"Murphy","Cook","Morgan","Bell","Bailey","Ward","Russell","Reed","Powell","Brooks"
 ];
 
 const countries = [
