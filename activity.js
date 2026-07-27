@@ -66,7 +66,7 @@ return Math.floor(Math.random()*(max-min+1))+min;
 
 function generateActivity(){
 
-const name=randomItem(firstNames);
+const name=randomFullName();
 
 const country=randomItem(countries);
 
