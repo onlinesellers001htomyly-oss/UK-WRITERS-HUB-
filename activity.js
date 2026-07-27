@@ -7,11 +7,13 @@ const maleNames=[
 "Jonathan","Bruce","Aaron","Kelvin","Moses","Nicholas","Donald","Steve","Vincent","Jeff"
 ];
 
-const femaleNames = [
+const femaleNames=[
 "Grace","Mary","Faith","Mercy","Sarah","Sophia","Olivia","Emma","Linda","Joy",
 "Emily","Alice","Cynthia","Janet","Lucy","Ruth","Beatrice","Diana","Caroline","Brenda",
 "Hannah","Victoria","Elizabeth","Angela","Irene","Dorcas","Esther","Naomi","Rachel","Deborah",
-"Jennifer","Natalie","Sandra","Vanessa","Sharon","Patricia","Lilian","Monica","Christine","Rose"
+"Jennifer","Natalie","Sandra","Vanessa","Sharon","Patricia","Lilian","Monica","Christine","Rose",
+"Gloria","Agnes","Priscilla","Winfred","Martha","Evelyn","Judith","Yvonne","Ann","Susan",
+"Rebecca","Doreen","Stella","Sheila","Joyce","Flora","Phoebe","Peris","Catherine","Edna"
 ];
 
 const surnames = [
