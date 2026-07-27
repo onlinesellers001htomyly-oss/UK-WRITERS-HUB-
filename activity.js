@@ -68,11 +68,7 @@ return Math.floor(Math.random()*(max-min+1))+min;
 }
 
 function generateActivity(){
-activities.unshift({
-    text,
-    category,
-    createdAt: Date.now()
-});
+
 const gender=Math.random()<0.5?maleNames:femaleNames;
 
 const name=randomItem(gender)+" "+randomItem(surnames);
@@ -133,7 +129,11 @@ const times = [
 "2 hours ago"
 ];
 
-
+activities.unshift({
+    text,
+    category,
+    time: randomItem(times)
+});
 
 if(activities.length>100){
 
