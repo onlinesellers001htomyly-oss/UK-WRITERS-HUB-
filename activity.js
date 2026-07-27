@@ -1,8 +1,26 @@
-const firstNames = [
+const maleNames = [
 "James","John","Michael","David","Daniel","Joseph","Samuel","Peter","Paul","Mark",
+"Kevin","Brian","Charles","George","Anthony","Andrew","Collins","Dennis","Victor","Wilson",
+"Robert","Richard","Thomas","Edward","Patrick","Martin","Stephen","Simon","Philip","Eric",
+"Benjamin","Noah","Elijah","Jacob","William","Henry","Luke","Isaac","Nathan","Ryan"
+"james","John","Michael","David","Daniel","Joseph","Samuel","Peter","Paul","Mark",
 "Grace","Mary","Faith","Mercy","Sarah","Sophia","Olivia","Emma","Linda","Joy",
 "Kevin","Brian","Charles","George","Anthony","Andrew","Collins","Dennis","Victor","Wilson",
-"Emily","Alice","Cynthia","Janet","Lucy","Ruth","Beatrice","Diana","Caroline","Brenda"
+"Emily","Alice","Cynthia","Janet"];
+
+const femaleNames = [
+"Grace","Mary","Faith","Mercy","Sarah","Sophia","Olivia","Emma","Linda","Joy",
+"Emily","Alice","Cynthia","Janet","Lucy","Ruth","Beatrice","Diana","Caroline","Brenda",
+"Hannah","Victoria","Elizabeth","Angela","Irene","Dorcas","Esther","Naomi","Rachel","Deborah",
+"Jennifer","Natalie","Sandra","Vanessa","Sharon","Patricia","Lilian","Monica","Christine","Rose"
+];
+
+const surnames = [
+"Smith","Johnson","Brown","Williams","Jones","Miller","Davis","Wilson","Taylor","Clark",
+"Walker","Young","Allen","King","Scott","Green","Baker","Nelson","Carter","Mitchell",
+"Kamau","Otieno","Mwangi","Kiptoo","Mutua","Muli","Wanjiku","Achieng","Kariuki","Maina",
+"Njoroge","Omondi","Okello","Kato","Tumusiime","Abebe","Tesfaye","Mensah","Adeyemi","Okafor",
+"Patel","Sharma","Singh","Khan","Ali","Kim","Lee","Garcia","Martinez","Silva"
 ];
 
 const countries = [
