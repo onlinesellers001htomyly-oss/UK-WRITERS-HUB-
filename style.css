@@ -1234,15 +1234,19 @@ z-index:999;
 
 .notification-btn{
 
+background:#1565C0;
+
+color:white;
+
+border-radius:50%;
+
 width:60px;
 
 height:60px;
 
-border-radius:50%;
+box-shadow:0 5px 15px rgba(0,0,0,.4);
 
-font-size:28px;
-
-  }
+}
 
 #notificationCount{
 
