@@ -1349,12 +1349,19 @@ animation:fadeIn .5s ease;
 }
 .activity-card{
 
-background:white;
+background:#F8FFF8;
 
-color:#222;
+border-left:8px solid #2E7D32;
+
+border-radius:15px;
+
+padding:15px;
+
+margin-bottom:12px;
+
+box-shadow:0 4px 10px rgba(0,0,0,.15);
 
 }
-
 .activity-card h3{
 
 color:#1565C0;
