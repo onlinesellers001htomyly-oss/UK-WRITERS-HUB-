@@ -5,10 +5,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-body {
-  background: linear-gradient(135deg, #1ec8ff 0%, #1ad66c 45%, #ff8c1a 100%);
-  color: white;
-  min-height: 100vh;
+body{
+
+background:linear-gradient(
+135deg,
+#0B6B3A,
+#1565C0,
+#26A69A
+);
+
+font-family:Arial,sans-serif;
+
 }
 
 /* HEADER */
