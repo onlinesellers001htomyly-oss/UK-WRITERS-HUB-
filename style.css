@@ -129,8 +129,12 @@ transition:.3s;
 
 }
 
-.btn:hover {
-  transform: scale(1.04);
+.btn:hover{
+
+background:#0B6B3A;
+
+transform:scale(1.05);
+
 }
 
 .primary {
