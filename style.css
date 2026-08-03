@@ -916,35 +916,7 @@ border-radius:20px;
 padding:25px;
 
   }
-.stat-card:nth-child(1){
 
-background:#2E7D32;
-
-}
-
-.stat-card:nth-child(2){
-
-background:#1565C0;
-
-}
-
-.stat-card:nth-child(3){
-
-background:#8E24AA;
-
-}
-
-.stat-card:nth-child(4){
-
-background:#FB8C00;
-
-}
-
-.stat-card:nth-child(5){
-
-background:#D32F2F;
-
-  }
 
 .stat-card:hover{
 transform:translateY(-8px);
