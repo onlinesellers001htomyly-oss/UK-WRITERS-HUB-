@@ -186,11 +186,79 @@ transform:scale(1.05);
   grid-template-columns: repeat(3, 1fr);
 }
 
-.card {
-  background: linear-gradient(135deg, rgba(4, 49, 35, 0.95), rgba(0, 90, 42, 0.9));
-  border-radius: 22px;
-  padding: 25px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+.card{
+
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+
+border-radius:20px;
+
+padding:20px;
+
+color:white;
+
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+
+transition:.4s;
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 20px 45px rgba(0,0,0,.5);
+
+                            }
+.card:nth-child(1){
+
+background:linear-gradient(135deg,#00b09b,#96c93d);
+
+}
+
+.card:nth-child(2){
+
+background:linear-gradient(135deg,#396afc,#2948ff);
+
+}
+
+.card:nth-child(3){
+
+background:linear-gradient(135deg,#ff8008,#ffc837);
+
+}
+
+.card:nth-child(4){
+
+background:linear-gradient(135deg,#8e2de2,#4a00e0);
+
+}
+
+.card:nth-child(5){
+
+background:linear-gradient(135deg,#ff416c,#ff4b2b);
+
+}
+
+.card:nth-child(6){
+
+background:linear-gradient(135deg,#00c9ff,#92fe9d);
+
+}
+
+.card:nth-child(7){
+
+background:linear-gradient(135deg,#11998e,#38ef7d);
+
+}
+
+.card:nth-child(8){
+
+background:linear-gradient(135deg,#1d2b64,#f8cdda);
+
 }
 
 .card h3,
