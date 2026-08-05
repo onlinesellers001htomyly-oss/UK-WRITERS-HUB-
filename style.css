@@ -195,7 +195,7 @@ border-radius:20px;
 
 padding:20px;
 
-color:red;
+color:white;
 
 box-shadow:0 15px 35px rgba(0,0,0,.4);
 
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:green;
+color:white;
 
 padding:25px;
 
@@ -497,7 +497,7 @@ text-align:center;
 
 .dashboard-card{
 
-background:green;
+background:white;
 
 border-radius:20px;
 
@@ -536,7 +536,7 @@ border-left:8px solid #1565C0;
 }
 
 .ref-link-box {
-  background: yellow;
+  background: white;
   color: black;
   padding: 14px;
   border-radius: 14px;
@@ -708,7 +708,7 @@ background:linear-gradient(180deg,#022b1f,#014421,#052a4f);
 
 .sidebar a{
 
-color:green;
+color:white;
 
 padding:16px;
 
@@ -1016,7 +1016,7 @@ margin:25px 0;
 
 background:#1565C0;
 
-color:green;
+color:white;
 
 text-align:center;
 
