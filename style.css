@@ -1268,7 +1268,7 @@ border-radius:10px;
 
 background:#1565C0;
 
-color:yellow;
+color:white;
 
 font-size:17px;
 
@@ -1399,7 +1399,7 @@ max-height:450px;
 
 overflow-y:auto;
 
-background:red;
+background:white;
 
 border-radius:12px;
 
@@ -1637,7 +1637,7 @@ margin:12px;
 
 .profile-card strong{
 
-color:green;
+color:white;
 
 font-size:20px;
 
@@ -1794,7 +1794,7 @@ resize:vertical;
   }
 .chat-card{
 
-background:green;
+background:white;
 
 padding:20px;
 
@@ -1856,7 +1856,7 @@ border-left:5px solid #1565C0;
   }
 .project-card{
 
-background:green;
+background:white;
 
 padding:20px;
 
@@ -1887,7 +1887,7 @@ margin:25px;
 
 .stat-card{
 
-background:green;
+background:white;
 
 border-radius:15px;
 
