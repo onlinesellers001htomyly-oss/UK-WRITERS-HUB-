@@ -696,13 +696,33 @@ border-left:8px solid #1565C0;
   color: #ffd0c3;
   }
 .sidebar{
-position:fixed;
-left:0;
-top:0;
-width:250px;
-height:100%;
-background:#0D47A1;
-overflow:auto;
+
+background:linear-gradient(180deg,#022b1f,#014421,#052a4f);
+
+}
+
+.sidebar a{
+
+color:white;
+
+padding:16px;
+
+display:block;
+
+border-radius:12px;
+
+margin:8px;
+
+transition:.3s;
+
+}
+
+.sidebar a:hover{
+
+background:#00c853;
+
+transform:translateX(10px);
+
 }
 
 .sidebar h2{
@@ -1536,7 +1556,7 @@ font-weight:bold;
   }
 .leader-card{
 
-background:white;
+background:purple;
 
 padding:20px;
 
@@ -1862,7 +1882,7 @@ margin:25px;
 
 .stat-card{
 
-background:white;
+background:green;
 
 border-radius:15px;
 
