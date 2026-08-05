@@ -38,7 +38,7 @@ header{
 
 background:linear-gradient(90deg,#003973,#005c97,#00b09b);
 
-color:yellow;
+color:white;
 
 box-shadow:0 10px 20px rgba(0,0,0,.4);
 
@@ -51,7 +51,7 @@ box-shadow:0 10px 20px rgba(0,0,0,.4);
 
 .menu-btn {
   background: #00d26a;
-  color: maroon;
+  color: white;
   border: none;
   padding: 10px 14px;
   font-size: 1.2rem;
@@ -68,7 +68,7 @@ background:#0B6B3A;
   
 .main-nav a{
 
-color:pink;
+color:white;
 
 padding:15px;
 
@@ -128,7 +128,7 @@ button{
 
 background:linear-gradient(135deg,#ff512f,#dd2476);
 
-color:pink;
+color:white;
 
 border:none;
 
@@ -155,12 +155,12 @@ background:linear-gradient(135deg,#00c6ff,#0072ff);
 
 .primary {
   background: #00d26a;
-  color: black;
+  color: white;
 }
 
 .secondary {
   background: linear-gradient(90deg, #ff5f2e, #ff1f7a);
-  color: red;
+  color:blue;
 }
 
 /* SECTIONS */
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:white;
+color:green;
 
 padding:25px;
 
@@ -497,7 +497,7 @@ text-align:center;
 
 .dashboard-card{
 
-background:white;
+background:green;
 
 border-radius:20px;
 
@@ -655,7 +655,7 @@ border-left:8px solid #1565C0;
 
 .admin-btn.credit {
   background: #ffc107;
-  color: black;
+  color: orange;
 }
 
 .admin-btn.approve {
@@ -708,7 +708,7 @@ background:linear-gradient(180deg,#022b1f,#014421,#052a4f);
 
 .sidebar a{
 
-color:white;
+color:green;
 
 padding:16px;
 
@@ -731,7 +731,7 @@ transform:translateX(10px);
 }
 
 .sidebar h2{
-color:green;
+color:orange;
 text-align:center;
 padding:20px 10px;
 margin:0;
@@ -982,7 +982,7 @@ font-size:25px;
 
 .welcome-card{
 background:linear-gradient(135deg,#0f8b4c,#25b95b);
-color:red;
+color:white;
 padding:30px;
 border-radius:20px;
 margin-bottom:25px;
@@ -1016,7 +1016,7 @@ margin:25px 0;
 
 background:#1565C0;
 
-color:white;
+color:pink;
 
 text-align:center;
 
