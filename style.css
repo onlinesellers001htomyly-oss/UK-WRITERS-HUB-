@@ -20,7 +20,7 @@ body{
 
     background-size:400% 400%;
     animation:bgMove 15s ease infinite;
-    color:green;
+    color:white;
 }
 
 @keyframes bgMove{
@@ -160,7 +160,7 @@ background:linear-gradient(135deg,#00c6ff,#0072ff);
 
 .secondary {
   background: linear-gradient(90deg, #ff5f2e, #ff1f7a);
-  color:blue;
+  color:white;
 }
 
 /* SECTIONS */
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:green;
+color:white;
 
 padding:25px;
 
@@ -497,7 +497,7 @@ text-align:center;
 
 .dashboard-card{
 
-background:green;
+background:white;
 
 border-radius:20px;
 
