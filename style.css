@@ -34,15 +34,13 @@ body{
 }
 
 /* HEADER */
-.header{
+header{
 
-background:#0B6B3A;
+background:linear-gradient(90deg,#003973,#005c97,#00b09b);
 
-color:white;
+color:yellow;
 
-padding:15px;
-
-box-shadow:0 4px 10px rgba(0,0,0,.3);
+box-shadow:0 10px 20px rgba(0,0,0,.4);
 
 }
 
