@@ -1058,7 +1058,7 @@ margin-top:20px;
 
 background:linear-gradient(135deg,#198754,#34c759);
 
-color:white;
+color:pink;
 
 padding:22px;
 
@@ -1170,7 +1170,7 @@ border-radius:12px;
 
 font-size:16px;
 
-background:white;
+background:yellow;
 
 box-shadow:0 4px 12px rgba(0,0,0,.12);
 
@@ -1188,7 +1188,7 @@ gap:25px;
 
 .task-card{
 
-background:white;
+background:yellow;
 
 border-radius:18px;
 
@@ -1224,7 +1224,7 @@ display:inline-block;
 
 background:#28a745;
 
-color:white;
+color:red;
 
 padding:8px 16px;
 
@@ -1268,7 +1268,7 @@ border-radius:10px;
 
 background:#1565C0;
 
-color:white;
+color:green;
 
 font-size:17px;
 
@@ -1343,7 +1343,7 @@ z-index:999;
 
 background:#1565C0;
 
-color:white;
+color;blue;
 
 border-radius:50%;
 
@@ -1365,7 +1365,7 @@ right:-5px;
 
 background:red;
 
-color:white;
+color:green;
 
 width:24px;
 
