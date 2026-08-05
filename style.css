@@ -124,31 +124,34 @@ border-radius:10px;
 }
 
 /* BUTTONS */
-.btn{
+button{
 
-background:#1565C0;
+background:linear-gradient(135deg,#ff512f,#dd2476);
 
-color:white;
-
-padding:14px;
-
-border-radius:12px;
+color:pink;
 
 border:none;
 
-cursor:pointer;
+padding:15px;
+
+border-radius:15px;
+
+font-weight:bold;
 
 transition:.3s;
 
+cursor:pointer;
+
 }
 
-.btn:hover{
-
-background:#0B6B3A;
+button:hover{
 
 transform:scale(1.05);
 
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+
 }
+
 
 .primary {
   background: #00d26a;
