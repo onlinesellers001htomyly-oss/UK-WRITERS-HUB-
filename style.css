@@ -320,11 +320,16 @@ background:linear-gradient(135deg,#1d2b64,#f8cdda);
 }
 
 /* FOOTER */
-.footer {
-  text-align: center;
-  padding: 35px 20px;
-  margin-top: 20px;
-  background: rgba(0,0,0,0.15);
+footer{
+
+background:#021b14;
+
+color:green;
+
+padding:25px;
+
+text-align:center;
+
 }
 
 .footer p {
