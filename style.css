@@ -51,7 +51,7 @@ box-shadow:0 10px 20px rgba(0,0,0,.4);
 
 .menu-btn {
   background: #00d26a;
-  color: white;
+  color:green;
   border: none;
   padding: 10px 14px;
   font-size: 1.2rem;
@@ -128,7 +128,7 @@ button{
 
 background:linear-gradient(135deg,#ff512f,#dd2476);
 
-color:white;
+color:green;
 
 border:none;
 
@@ -155,12 +155,12 @@ background:linear-gradient(135deg,#00c6ff,#0072ff);
 
 .primary {
   background: #00d26a;
-  color: white;
+  color:pink;
 }
 
 .secondary {
   background: linear-gradient(90deg, #ff5f2e, #ff1f7a);
-  color:white;
+  color:yellow;
 }
 
 /* SECTIONS */
@@ -195,7 +195,7 @@ border-radius:20px;
 
 padding:20px;
 
-color:white;
+color:orange;
 
 box-shadow:0 15px 35px rgba(0,0,0,.4);
 
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:white;
+color:pink;
 
 padding:25px;
 
