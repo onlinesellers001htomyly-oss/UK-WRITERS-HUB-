@@ -1016,7 +1016,7 @@ margin:25px 0;
 
 background:#1565C0;
 
-color:pink;
+color:white;
 
 text-align:center;
 
@@ -1058,7 +1058,7 @@ margin-top:20px;
 
 background:linear-gradient(135deg,#198754,#34c759);
 
-color:pink;
+color:white;
 
 padding:22px;
 
@@ -1170,7 +1170,7 @@ border-radius:12px;
 
 font-size:16px;
 
-background:yellow;
+background:white;
 
 box-shadow:0 4px 12px rgba(0,0,0,.12);
 
@@ -1188,7 +1188,7 @@ gap:25px;
 
 .task-card{
 
-background:yellow;
+background:white;
 
 border-radius:18px;
 
@@ -1224,7 +1224,7 @@ display:inline-block;
 
 background:#28a745;
 
-color:red;
+color:white;
 
 padding:8px 16px;
 
@@ -1268,7 +1268,7 @@ border-radius:10px;
 
 background:#1565C0;
 
-color:green;
+color:yellow;
 
 font-size:17px;
 
@@ -1289,7 +1289,7 @@ background:#0d47a1;
 padding:60px 20px;
 background:linear-gradient(135deg,#0d47a1,#1565C0,#26a69a);
 text-align:center;
-color:white;
+color:pink;
 }
 
 .stats-section h2{
@@ -1365,7 +1365,7 @@ right:-5px;
 
 background:red;
 
-color:green;
+color:white;
 
 width:24px;
 
@@ -1522,7 +1522,7 @@ margin:30px 0;
 
 background:linear-gradient(135deg,#1B5E20,#43A047);
 
-color:pink;
+color:white;
 
 padding:25px;
 
@@ -1561,7 +1561,7 @@ font-weight:bold;
   }
 .leader-card{
 
-background:purple;
+background:white;
 
 padding:20px;
 
@@ -1585,7 +1585,7 @@ color:#1565C0;
 
 .leader-card strong{
 
-color:green;
+color:blue;
 
 font-size:20px;
 
@@ -1685,7 +1685,7 @@ padding:20px;
 
 .wallet-card{
 
-background:green;
+background:white;
 
 border-radius:15px;
 
@@ -1715,7 +1715,7 @@ margin:25px 0;
 
 .stat-card{
 background:linear-gradient(135deg,#1565C0,#512DA8);
-color:green;
+color:white;
 padding:25px;
 border-radius:15px;
 text-align:center;
