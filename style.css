@@ -1343,7 +1343,7 @@ z-index:999;
 
 background:#1565C0;
 
-color;blue;
+color:blue;
 
 border-radius:50%;
 
@@ -1399,7 +1399,7 @@ max-height:450px;
 
 overflow-y:auto;
 
-background:white;
+background:red;
 
 border-radius:12px;
 
@@ -1456,7 +1456,7 @@ background:rgba(10,30,60,.9);
 
 border-left:6px solid #00ff99;
 
-color:white;
+color:green;
 
 padding:18px;
 
@@ -1522,7 +1522,7 @@ margin:30px 0;
 
 background:linear-gradient(135deg,#1B5E20,#43A047);
 
-color:white;
+color:pink;
 
 padding:25px;
 
@@ -1592,7 +1592,7 @@ font-size:20px;
   }
 .profile-card{
 
-background:white;
+background:pink;
 
 max-width:500px;
 
@@ -1644,7 +1644,7 @@ font-size:20px;
   }
 .review-box{
 
-background:white;
+background:green;
 
 padding:20px;
 
@@ -1685,7 +1685,7 @@ padding:20px;
 
 .wallet-card{
 
-background:white;
+background:green;
 
 border-radius:15px;
 
@@ -1715,7 +1715,7 @@ margin:25px 0;
 
 .stat-card{
 background:linear-gradient(135deg,#1565C0,#512DA8);
-color:white;
+color:green;
 padding:25px;
 border-radius:15px;
 text-align:center;
@@ -1794,7 +1794,7 @@ resize:vertical;
   }
 .chat-card{
 
-background:white;
+background:green;
 
 padding:20px;
 
@@ -1841,7 +1841,7 @@ margin-left:60px;
 
 .admin-message{
 
-background:white;
+background:blue;
 
 padding:12px;
 
@@ -1856,7 +1856,7 @@ border-left:5px solid #1565C0;
   }
 .project-card{
 
-background:white;
+background:green;
 
 padding:20px;
 
