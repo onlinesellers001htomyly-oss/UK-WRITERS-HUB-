@@ -665,7 +665,7 @@ border-left:8px solid #1565C0;
 
 .admin-btn.reject {
   background: #ff5f2e;
-  color: white;
+  color: black;
 }
 
 .status-badge {
@@ -708,7 +708,7 @@ background:linear-gradient(180deg,#022b1f,#014421,#052a4f);
 
 .sidebar a{
 
-color:green;
+color:gold;
 
 padding:16px;
 
@@ -1016,7 +1016,7 @@ margin:25px 0;
 
 background:#1565C0;
 
-color:white;
+color:green;
 
 text-align:center;
 
@@ -1058,7 +1058,7 @@ margin-top:20px;
 
 background:linear-gradient(135deg,#198754,#34c759);
 
-color:white;
+color:gold;
 
 padding:22px;
 
