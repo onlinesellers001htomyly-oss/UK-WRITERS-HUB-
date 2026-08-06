@@ -68,7 +68,7 @@ background:#0B6B3A;
   
 .main-nav a{
 
-color:white;
+color:gold;
 
 padding:15px;
 
@@ -128,7 +128,7 @@ button{
 
 background:linear-gradient(135deg,#ff512f,#dd2476);
 
-color:green;
+color:black;
 
 border:none;
 
@@ -155,12 +155,12 @@ background:linear-gradient(135deg,#00c6ff,#0072ff);
 
 .primary {
   background: #00d26a;
-  color:pink;
+  color:navyblue;
 }
 
 .secondary {
   background: linear-gradient(90deg, #ff5f2e, #ff1f7a);
-  color:yellow;
+  color:gold;
 }
 
 /* SECTIONS */
@@ -195,7 +195,7 @@ border-radius:20px;
 
 padding:20px;
 
-color:orange;
+color:black;
 
 box-shadow:0 15px 35px rgba(0,0,0,.4);
 
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:pink;
+color:black;
 
 padding:25px;
 
