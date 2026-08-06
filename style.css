@@ -1289,7 +1289,7 @@ background:#0d47a1;
 padding:60px 20px;
 background:linear-gradient(135deg,#0d47a1,#1565C0,#26a69a);
 text-align:center;
-color:pink;
+color:yellow;
 }
 
 .stats-section h2{
@@ -1343,7 +1343,7 @@ z-index:999;
 
 background:#1565C0;
 
-color:blue;
+color:black;
 
 border-radius:50%;
 
@@ -1363,7 +1363,7 @@ top:-5px;
 
 right:-5px;
 
-background:red;
+background:blue;
 
 color:white;
 
@@ -1561,7 +1561,7 @@ font-weight:bold;
   }
 .leader-card{
 
-background:white;
+background:gold;
 
 padding:20px;
 
@@ -1585,7 +1585,7 @@ color:#1565C0;
 
 .leader-card strong{
 
-color:blue;
+color:black;
 
 font-size:20px;
 
