@@ -160,7 +160,7 @@ background:linear-gradient(135deg,#00c6ff,#0072ff);
 
 .secondary {
   background: linear-gradient(90deg, #ff5f2e, #ff1f7a);
-  color:black;
+  color:pink;
 }
 
 /* SECTIONS */
@@ -324,7 +324,7 @@ footer{
 
 background:#021b14;
 
-color:white;
+color:pink;
 
 padding:25px;
 
@@ -536,7 +536,7 @@ border-left:8px solid #1565C0;
 }
 
 .ref-link-box {
-  background: white;
+  background: pink;
   color: black;
   padding: 14px;
   border-radius: 14px;
@@ -708,7 +708,7 @@ background:linear-gradient(180deg,#022b1f,#014421,#052a4f);
 
 .sidebar a{
 
-color:gold;
+color:pink;
 
 padding:16px;
 
@@ -731,7 +731,7 @@ transform:translateX(10px);
 }
 
 .sidebar h2{
-color:orange;
+color:red;
 text-align:center;
 padding:20px 10px;
 margin:0;
@@ -982,7 +982,7 @@ font-size:25px;
 
 .welcome-card{
 background:linear-gradient(135deg,#0f8b4c,#25b95b);
-color:white;
+color:blue;
 padding:30px;
 border-radius:20px;
 margin-bottom:25px;
