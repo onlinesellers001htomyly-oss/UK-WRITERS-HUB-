@@ -1058,7 +1058,7 @@ margin-top:20px;
 
 background:linear-gradient(135deg,#198754,#34c759);
 
-color:gold;
+color:pink;
 
 padding:22px;
 
@@ -1224,7 +1224,7 @@ display:inline-block;
 
 background:#28a745;
 
-color:white;
+color:blue;
 
 padding:8px 16px;
 
@@ -1268,7 +1268,7 @@ border-radius:10px;
 
 background:#1565C0;
 
-color:white;
+color:pink;
 
 font-size:17px;
 
@@ -1289,7 +1289,7 @@ background:#0d47a1;
 padding:60px 20px;
 background:linear-gradient(135deg,#0d47a1,#1565C0,#26a69a);
 text-align:center;
-color:yellow;
+color:blue;
 }
 
 .stats-section h2{
@@ -1363,9 +1363,9 @@ top:-5px;
 
 right:-5px;
 
-background:blue;
+background:white;
 
-color:white;
+color:pink;
 
 width:24px;
 
@@ -1522,7 +1522,7 @@ margin:30px 0;
 
 background:linear-gradient(135deg,#1B5E20,#43A047);
 
-color:white;
+color:red;
 
 padding:25px;
 
@@ -1561,7 +1561,7 @@ font-weight:bold;
   }
 .leader-card{
 
-background:gold;
+background:white;
 
 padding:20px;
 
@@ -1592,7 +1592,7 @@ font-size:20px;
   }
 .profile-card{
 
-background:pink;
+background:white;
 
 max-width:500px;
 
@@ -1637,14 +1637,14 @@ margin:12px;
 
 .profile-card strong{
 
-color:white;
+color:pink;
 
 font-size:20px;
 
   }
 .review-box{
 
-background:green;
+background:white;
 
 padding:20px;
 
@@ -1715,7 +1715,7 @@ margin:25px 0;
 
 .stat-card{
 background:linear-gradient(135deg,#1565C0,#512DA8);
-color:white;
+color:blue;
 padding:25px;
 border-radius:15px;
 text-align:center;
@@ -1841,7 +1841,7 @@ margin-left:60px;
 
 .admin-message{
 
-background:blue;
+background:white;
 
 padding:12px;
 
@@ -1887,7 +1887,7 @@ margin:25px;
 
 .stat-card{
 
-background:white;
+background:yellow;
 
 border-radius:15px;
 
