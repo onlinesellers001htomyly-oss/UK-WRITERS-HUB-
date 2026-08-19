@@ -1363,7 +1363,7 @@ top:-5px;
 
 right:-5px;
 
-background:white;
+background:green;
 
 color:pink;
 
@@ -1637,7 +1637,7 @@ margin:12px;
 
 .profile-card strong{
 
-color:pink;
+color:red;
 
 font-size:20px;
 
@@ -1794,7 +1794,7 @@ resize:vertical;
   }
 .chat-card{
 
-background:white;
+background:green;
 
 padding:20px;
 
@@ -1841,7 +1841,7 @@ margin-left:60px;
 
 .admin-message{
 
-background:white;
+background:green;
 
 padding:12px;
 
