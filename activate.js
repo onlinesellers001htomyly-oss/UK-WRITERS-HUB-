@@ -68,7 +68,7 @@ payBtn.addEventListener("click", async () => {
 
             phone: phone,
 
-            amount: 10,
+            amount: 4,
 
             currency: "USD",
 
